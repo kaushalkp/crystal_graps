@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.2.css">
+        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css"></link>
+        <link rel="stylesheet" href="css/custom.css"></link>
+       
+        
+    </head>
+    <body>
+        <div data-role="page"  class="outerdiv mainpage"  id="page-dashboard"> 
+            <div data-role="panel" style="background-color:#354052" data-position-fixed="true" id="overlayPanel" data-display="overlay"  class="bg-l-green side-panel-menu" >
+            </div>
+            <div  data-role="header" class="custpage-header header tp-header  ui-header ui-bar-inherit ui-header-fixed"  data-position="fixed" role="banner">
+                <div class="header-main">
+                    <h2 style="line-height:15px;">Scheme Performance</h2>
+                    <div class="btn-right ">
+                        <div class="ui-block-a" > <a href= "#filter" data-transition="slideup" data-rel="popup" data-position-to="window" class=""> <img src="images/filter.png" style="width:16px;"/> </a></div>
+                        <div class="ui-block-b" >&nbsp;&nbsp;&nbsp;&nbsp; </div>
+                        <div class="ui-block-c" ><a  href="#"><img src="images/next-p-btn.png" style="width:16px !important;"/> </a> </div>
+                    </div>
+                </div>
+            </div>
+
+            <div data-role="tabs" id="tabs">
+                <div data-role="navbar">
+                    <ul class="tabs-green-theme">                        
+                        <li><a href="#product" data-ajax="false">Product</a></li>
+                        <li><a href="#scheme" data-ajax="false">Scheme</a></li>
+
+
+                    </ul>
+                </div>
+                <div id="product" class="ui-body-d ui-content" style="background-color: #EAEBE6;">
+
+                    <div class="subgraph" style="width: 98%;" >
+                        <div class="subgraph" style="margin-left:  2%;margin-top:2%;background-color: white;color: grey ;size: 14px;text-align: left;" >
+                            <div  style="width: 100%;  ">
+                                <span class="graph-title">Scheme</span>
+                            </div>
+                            <div  id="scheme_performance_chart" style="height: 450px; width: 100% "></div>
+
+                        </div>
+                    </div>
+                </div>
+                <div id="scheme" class="ui-body-d ui-content" style="background-color: #EAEBE6;">
+                    <div class="subgraph" style="width: 98%;" >
+                        <div class="subgraph" style="margin-left:  2%;margin-top:2%;background-color: white;color: grey ;size: 14px;text-align: left;" >
+                            <div  style="width: 100%;  ">
+                                <span class="graph-title">Scheme</span>
+                            </div>
+                            <div  id="scheme_performance_chart2" style="height: 450px; width: 100% "></div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div data-role="popup" id="popupscheme" data-overlay-theme="b" data-theme="b"  data-corners="false" class="ui-corner-all">
+                <form>
+                    <div class="subgraph" style="background-color: white;color: grey ;size: 14px;" >
+                        <div  style=" ">
+                            <span class="graph-title">Product </span>
+                        </div>
+                        <div  id="product_performance_chart" style="height: 300px;width: 300px;"></div>
+                    </div>
+                </form>
+            </div>
+            <!-- -->
+
+
+
+        </div>
+
+
+
+        <!--        <a href="#popupMenu" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left ui-btn-a" data-transition="pop">Sign in</a>
+                <div data-role="popup" id="popupMenu" data-theme="a" >
+                    <ul data-role="listview" data-inset="true" data-filter="true" style="width:100%" >
+                         <li><a href="#">Acura</a></li>
+                        <li><a href="#">Audi</a></li>
+                        <li><a href="#">BMW</a></li>
+                        <li><a href="#">Cadillac</a></li>
+                        <li><a href="#">Chrysler</a></li>
+                        <li><a href="#">Dodge</a></li>
+                        <li><a href="#">Ferrari</a></li>
+                        <li><a href="#">Ford</a></li>
+                        <li><a href="#">GMC</a></li>
+                        <li><a href="#">Honda</a></li>
+                        <li><a href="#">Hyundai</a></li>
+                        <li><a href="#">Infiniti</a></li>
+                        <li><a href="#">Jeep</a></li>
+                        <li><a href="#">Kia</a></li>
+                        <li><a href="#">Lexus</a></li>
+                        <li><a href="#">Mini</a></li>
+                        <li><a href="#">Nissan</a></li>
+                        <li><a href="#">Porsche</a></li>
+                        <li><a href="#">Subaru</a></li>
+                        <li><a href="#">Toyota</a></li>
+                        <li><a href="#">Volkswagen</a></li>
+                        <li><a href="#">Volvo</a></li>
+                    </ul>
+                </div>-->
+        <!--        <div data-role="popup" id="popupLogin" data-theme="a" class="ui-corner-all">
+                    <ul data-role="listview" 
+        data-inset="true" data-filter="true" 
+        data-filter-reveal="true" data-filter-placeholder="Search cars..." 
+        style="min-width:210px;">
+                        <li><a href="#">Acura</a></li>
+                        <li><a href="#">Audi</a></li>
+                        <li><a href="#">BMW</a></li>
+                        <li><a href="#">Cadillac</a></li>
+                        <li><a href="#">Chrysler</a></li>
+                        <li><a href="#">Dodge</a></li>
+                        <li><a href="#">Ferrari</a></li>
+                        <li><a href="#">Ford</a></li>
+                        <li><a href="#">GMC</a></li>
+                        <li><a href="#">Honda</a></li>
+                        <li><a href="#">Hyundai</a></li>
+                        <li><a href="#">Infiniti</a></li>
+                        <li><a href="#">Jeep</a></li>
+                        <li><a href="#">Kia</a></li>
+                        <li><a href="#">Lexus</a></li>
+                        <li><a href="#">Mini</a></li>
+                        <li><a href="#">Nissan</a></li>
+                        <li><a href="#">Porsche</a></li>
+                        <li><a href="#">Subaru</a></li>
+                        <li><a href="#">Toyota</a></li>
+                        <li><a href="#">Volkswagen</a></li>
+                        <li><a href="#">Volvo</a></li>
+                    </ul>
+                </div>-->
+        <script src="lib/jquery-1.10.2.min.js"></script>
+        <script src="lib/jqueryui-1.11.js"></script>
+        <!--<script src="lib/jquery.sparkline.min.js"></script>-->
+        <script src="lib/jquery.mobile-1.4.2.min.js"></script>
+        <script src="lib/canvasjs.js"></script>
+        
+        
+ <script>
+
+            function openGraphPopup(product)
+            {
+                console.log(product.label);
+                $('#product_performance_chart_title').html(product.label);
+                $("#popupscheme").popup("open");
+                 chart2.render();
+            }
+
+            window.onload = function() {
+                CanvasJS.addColorSet("whitecolor",
+                        [//colorSet Array
+                            "#FFFFFF",
+                        ]);
+
+                 chart = new CanvasJS.Chart("scheme_performance_chart",
+                        {
+                            title: {
+                                text: "in Lakhs",
+                                fontColor: "white",
+                                fontSize: 12,
+                                horizontalAlign: "right"
+                            },
+                            toolTip: {
+                                enabled: false, //enable here
+                            },
+                            zoomEnabled: true,
+                            axisX: {
+                                gridThickness: 0,
+                                tickLength: 10,
+                                labelFontColor: 'white',
+                                labelFontSize: 10,
+                                tickcolor: 'white'
+                            },
+                            axisY: {
+                                gridThickness: 0,
+                                tickLength: 10,
+                                labelFontColor: 'white',
+                                labelFontSize: 10,
+                                tickcolor: 'white'},
+                            colorSet: "whitecolor",
+                            backgroundColor: "#7D94C7",
+                            data: [
+                                {
+                                    type: "bar",
+                                    click: function(e) {
+                                        console.log(e);
+                                        var product = e.dataSeries.dataPoints[e.dataPointIndex];
+                                        console.log(product);
+                                        openGraphPopup(product);
+                                    },
+                                    dataPoints: [
+                                        {y: 112, label: "SCM-1"},
+                                        {y: 42, label: "SCM-2"},
+                                        {y: 70, label: "SCM-3"},
+                                        {y: 60, label: "SCM-4"},
+                                        {y: 90, label: "SCM-5"},
+                                        {y: 60, label: "SCM-6"},
+                                        {y: 45, label: "SCM-7"},
+                                    ]
+                                },
+                            ]
+                        });
+                chart.render();
+                //};
+
+                 chart2 = new CanvasJS.Chart("product_performance_chart",
+                        {
+//      title:{
+//        text: "scheme",
+//        fontColor: "grey",
+//     fontSize: 20,
+//     margin:20,
+//     backgroundColor:'white',
+//       padding: 10,
+//     horizontalAlign:"left"             
+//      },
+                            toolTip: {
+                                enabled: false, //enable here
+                            },
+                            zoomEnabled: true,
+                            axisX: {
+                                gridThickness: 0,
+                                tickLength: 10,
+                                labelFontColor: 'white',
+                                labelFontSize: 10,
+                                tickcolor: 'white'
+                            },
+                            axisY: {
+                                gridThickness: 0,
+                                tickLength: 10,
+                                labelFontColor: 'white',
+                                labelFontSize: 10,
+                                tickcolor: 'white'
+                            },
+                            colorSet: "whitecolor",
+                            backgroundColor: "#F099A9",
+                            data: [
+                                {
+                                    indexLabel: "{y}  ",
+                                    indexLabelPlacement: "inside",
+                                    indexLabelFontColor: "black",
+                                    indexLabelFontSize: 12,
+                                    type: "column",
+//                                click: function(e) {
+//                                    console.log(e);
+//                                    var product = e.dataSeries.dataPoints[e.dataPointIndex];
+//                                    console.log(product);
+//                                    openproduct(product);
+//                                },
+                                    dataPoints: [
+                                        {y: 112, label: "Missile"},
+                                        {y: 42, label: "Billo"},
+                                        {y: 70, label: "Tribune"},
+                                        {y: 60, label: "Niban"},
+                                        {y: 90, label: "Sure"},
+                                    ]
+                                },
+                            ]
+                        });
+                chart2.render();
+
+                /*
+                 *  third graph
+                 */
+                CanvasJS.addColorSet("whitecolor",
+                        [//colorSet Array
+                            "#FFFFFF", '#65D4EA',
+                        ]);
+
+
+                 chart3 = new CanvasJS.Chart("scheme_performance_chart2",
+                        {
+                            title: {
+                                text: "in Lakhs",
+                                fontColor: "white",
+                                fontSize: 12,
+                                horizontalAlign: "left"
+                            },
+                            legend: {
+                                horizontalAlign: "right", // "center" , "right"
+                                verticalAlign: "top", // "top" , "bottom"
+                                fontSize: 12,
+                                fontColor:'white',
+                            },
+                            toolTip: {
+                                enabled: false, //enable here
+                            },
+                            zoomEnabled: true,
+                            axisX: {
+                                valueFormatString: "MMM",
+                                interval: 1,
+                                intervalType: "month",
+                                gridThickness: 0,
+                                tickLength: 10,
+                                labelFontColor: 'white',
+                                labelFontSize: 10,
+                                tickcolor: 'white'
+                            },
+                            axisY: {
+                                gridThickness: 0,
+                                tickLength: 10,
+                                labelFontColor: 'white',
+                                labelFontSize: 10,
+                                tickcolor: 'white'},
+                            colorSet: "whitecolor",
+                            backgroundColor: "#7D94C7",
+                            data: [
+                                {
+                                    type: "column",
+                                     legendText: "sales",
+                                     showInLegend: true, 
+                                    dataPoints: [
+                                        {x: new Date(2012, 03, 1), y: 420},
+                                        {x: new Date(2012, 04, 1), y: 402},
+                                        {x: new Date(2012, 05, 1), y: 500},
+                                        {x: new Date(2012, 06, 1), y: 490},
+                                    ]
+                                },
+                                {
+                                    type: "line",
+                                    legendText: "Last Year Sales",
+                                    showInLegend: true, 
+                                    markerColor: '#E88A97',
+                                    markerBorderColor: '#E88A97',
+                                    markerBorderThickness: 2,
+                                    lineThickness: 3,
+                                   
+                                    dataPoints: [
+                                        {x: new Date(2012, 03, 1), y: 460},
+                                        {x: new Date(2012, 04, 1), y: 450},
+                                        {x: new Date(2012, 05, 1), y: 500},
+                                        {x: new Date(2012, 06, 1), y: 480},
+                                        {x: new Date(2012, 07, 1), y: 480},
+                                        {x: new Date(2012, 08, 1), y: 410},
+                                        {x: new Date(2012, 09, 1), y: 500},
+                                        {x: new Date(2012, 10, 1), y: 480},
+                                        {x: new Date(2012, 11, 1), y: 510},
+                                        {x: new Date(2013, 00, 1), y: 450},
+                                        {x: new Date(2013, 01, 1), y: 414},
+                                        {x: new Date(2013, 02, 1), y: 520},
+                                        
+                                    ]
+                                }
+
+                            ]
+                        });
+                chart3.render();
+            }
+
+            $(document).ready(function() {
+
+                $("#tabs").tabs({
+                    activate: function(event, ui) {
+                        
+                        chart3.render();
+                        chart2.render();
+                        chart.render();
+                        
+                    }
+                });
+            });
+            $('canvas').unbind('touchstart touchmove touchend mouseenter mouseleave click mousedown mouseup');
+
+
+        </script>
+
+            </body>
+</html>

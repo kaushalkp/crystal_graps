@@ -1,0 +1,796 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Insert title here</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.2.css">
+        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css"></link>
+        <link rel="stylesheet" href="css/custom.css"></link>
+    </head>
+    <style>
+        noshadow {
+            -moz-box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+        }
+        .ui-page { -webkit-backface-visibility: hidden; }
+        .header-main h2, h4 {
+            color: #FFF;
+            font-weight: 100;
+            line-height: 1px;
+        }
+
+        .page-navbar
+        {
+            position: fixed;
+            z-index: 100;
+            width: 100%;
+            margin-top: -1px;
+        }
+
+        .btn-left {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+        }
+        .header{
+            padding:0px;
+        }
+        .icon-view{
+            background-color: transparent !important;
+            border: none !important;
+            padding: 5px 15px 19px 15px !important;
+            margin-top: 0px !important;
+        }
+        .err-msg-header{
+            padding: 10px 0px;
+            background-color: #DD8158;
+            margin-top: -1px;
+            color: white;
+            font-size: 16px;
+            text-shadow: none;
+        }
+        .close-icon{
+            transform: rotate(44deg);
+            -ms-transform:rotate(44deg);
+            -webkit-transform:rotate(44deg); 
+        }
+
+        body{
+            font-family: Roboto-Regular !important;
+        }
+        .ui-body-c, .ui-overlay-c { text-shadow:0 0 0; }
+
+        // [data-role=page]{height: 100% !important; position:relative !important;}
+        /*[data-role=footer]{bottom:0; position:absolute !important; top: auto !important; width:100%;}*/
+    </style>
+    <body>
+
+        <div data-role="page" class="outerdiv mainpage" id="page-login">
+            <div data-role="header" class="login-header" style="display:none;">
+                <div class="err-msg-header">
+                    Invalid login id or password
+                    <a class="btn-right"><img class="close-icon" src="images/icons-png/plus-white.png"/></a>
+                </div>
+            </div>
+            <div data-role="content" class="innerdiv" id="loginForm">
+
+            </div>
+        </div>
+        <div data-role="page"  class="outerdiv mainpage"  id="page-dashboard" > 
+            <div data-role="panel" style="background-color:#354052" data-position-fixed="true" id="overlayPanel" data-display="overlay"  class="bg-l-green side-panel-menu" >    
+            </div>
+            <div id="page-dashboard-content">
+            </div>
+        </div>
+        <div data-role="page"  class="outerdiv mainpage"  id="customerporfolio-page">
+            <div data-role="panel" style="background-color:#354052" data-position-fixed="true" id="overlayPanel" data-display="overlay"  class="bg-l-green side-panel-menu" >
+            </div>
+            <div  data-role="header" class="custpage-header header tp-header  ui-header ui-bar-inherit ui-header-fixed"  data-position="fixed" role="banner">
+                <div class="header-main">
+                    <h2 style="line-height:15px;">scheme PerFormance</h2>
+                    <a href="#overlayPanel" class="btn-right ui-link" style="padding-top: 0px;"> <img src="images/next-p-btn.png"> </a>
+                </div>
+            </div>
+            <div  id="customerporfolio-content">
+            </div>      
+        </div>
+
+        <div data-role="page"  class="outerdiv mainpage"  id="schemeperformance-page">
+
+            <div data-role="panel" style="background-color:#354052" data-position-fixed="true" id="overlayPanel" data-display="overlay"  class="bg-l-green side-panel-menu" >
+            </div>
+            <div  data-role="header" class="custpage-header header tp-header  ui-header ui-bar-inherit ui-header-fixed"  data-position="fixed" role="banner">
+                <div class="header-main">
+                    <h2 style="line-height:15px;">Scheme Performance</h2>
+                    <div class="btn-right ">
+                        <div class="ui-block-a" > <a href= "#scheme-performance-filter" data-transition="slideup" data-rel="popup" data-position-to="window" class=" side-menu-btn"> <img src="images/filter.png" style="width:16px;"/> </a></div>
+                        <div class="ui-block-b" >&nbsp;&nbsp;&nbsp;&nbsp; </div>
+                        <div class="ui-block-c" > <a href="#overlayPanel"  data-transition="slide" class=" side-menu-btn"> <img src="images/next-p-btn.png"/> </a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div data-role="tabs" id="tabs">
+                <div data-role="navbar" class="page-navbar">
+                    <ul class="tabs-green-theme">                        
+                        <li><a href="#product" data-ajax="false">Performance</a></li>
+                        <li><a href="#scheme" data-ajax="false">Month wise Trend</a></li>
+
+
+                    </ul>
+                </div>
+                <div id="product" class="ui-body-d ui-content" style="background-color: #EAEBE6;">
+
+                    <div class="subgraph" style="width: 98%;" >
+                        <div class="subgraph" style="margin-left:  2%;margin-top:2%;background-color: white;color: grey ;size: 14px;text-align: left;" >
+                            <div  style="width: 100%;  ">
+                                <span class="graph-title">Scheme</span>
+                            </div>
+                            <div  id="scheme_performance_chart" style="height: 450px; width: 100% "></div>
+
+                        </div>
+                    </div>
+                </div>
+                <div id="scheme" class="ui-body-d ui-content" style="background-color: #EAEBE6;">
+
+                    <div class="subgraph" style="width: 98%;" >
+
+                        <div class="subgraph" style="margin-left:  2%;margin-top:2%;background-color: white;color: grey ;size: 14px;text-align: left;" >
+
+                            <div  style="width: 100%;  ">
+                                <span class="graph-title">Scheme</span>
+                            </div>
+                            <div  id="scheme_performance_chart2" style="height: 450px; width: 100% "></div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- scheme filter  -->
+            <div data-role="page" class="outerdiv "  id="scheme-performance-filter" style="display: block; z-index:1000;" >
+
+            </div>
+
+
+            <div data-role="popup" id="popupscheme" data-overlay-theme="b" data-theme="b"  data-corners="false" class="ui-corner-all">
+                <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                <form>
+                    <div class="subgraph" style="background-color: white;color: grey ;size: 14px;" >
+                        <div  style=" ">
+                            <span id="product_performance_chart_title" class="graph-title">Product </span>
+                        </div>
+                        <div  id="product_performance_chart" style="height: 300px;width: 300px;"></div>
+                    </div>
+                </form>
+            </div>
+            <!-- -->
+        </div>
+
+        <!--
+         END -scheme performance chart page 
+        -->
+
+        <!--
+        START - sales performance chart page
+        -->
+        <div data-role="page"  class="outerdiv mainpage"  id="salesperformance-page">
+
+            <div data-role="panel" style="background-color:#354052" data-position-fixed="true" id="overlayPanel" data-display="overlay"  class="bg-l-green side-panel-menu" >
+            </div>
+            <div  data-role="header" class="custpage-header header tp-header  ui-header ui-bar-inherit ui-header-fixed"  data-position="fixed" role="banner">
+                <div class="header-main">
+                    <h2 style="line-height:15px;">Sales Performance</h2>
+                    <div class="btn-right ">
+                        <div class="ui-block-a" > <a href= "#sales-performance-filter" data-transition="slideup" data-rel="popup" data-position-to="window" class=" side-menu-btn"> <img src="images/filter.png" style="width:16px;"/> </a></div>
+                        <div class="ui-block-b" >&nbsp;&nbsp;&nbsp;&nbsp; </div>
+                        <div class="ui-block-c" > <a href="#overlayPanel"  data-transition="slide" class="menu-btn  side-menu-btn"> <img src="images/next-p-btn.png"/> </a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div data-role="tabs" id="sales-tabs">
+                <div data-role="navbar" class="page-navbar">
+                    <ul class="tabs-green-theme">                        
+                        <li><a href="#sales-sales" data-ajax="false">Sales</a></li>
+                        <li><a href="#sales-collection" data-ajax="false">Collections</a></li>
+                        <li><a href="#sales-returns" data-ajax="false">Returns</a></li>
+
+
+                    </ul>
+                </div>
+                <div id="sales-sales" class="ui-body-d ui-content" style="background-color: #EAEBE6;">
+
+                    <div class="subgraph" style="width: 98%;" >
+                        <div class="subgraph" style="margin-left:  2%;margin-top:2%;background-color: white;color: grey ;size: 14px;text-align: left;" >
+                            <div  style="width: 100%;  ">
+                                <span class="graph-title">Sales</span>
+                            </div>
+                            <div  id="sales_performance_chart_sales" style="height: 200px; width: 100% "></div>
+                        </div>
+
+                        <div class="subgraph" style="margin-left:  2%;margin-top:2%;background-color: #F099A9;color: grey ;size: 14px;text-align: left;" >
+                            <div class="ui-grid-a">
+                                <div  class="ui-block-a" style="text-align:center;color:#FFF">
+                                    <H1 >60%</H1>
+                                    <span>Sales</span>
+                                    <H3 >220/402</H3>
+                                </div>
+                                <div class="ui-block-b">
+                                    <div  id="sales_performance_chart_total" style="height: 150px; width: 100% "></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subgraph" style="margin-left:  2%;margin-top:2%;margin-bottom:2%;background-color: white;color: grey ;size: 14px;text-align: left;" >
+                            <div  style="width: 100%;  ">
+                                <span class="graph-title">Sales Trend</span>
+                            </div>
+                            <div  id="sales_performance_chart_trend" style="height: 200px; width: 100% "></div>
+                        </div>  
+                    </div>
+                </div>
+                <div id="sales-collection" class="ui-body-d ui-content" style="background-color: #EAEBE6;">
+
+                    <div class="subgraph" style="width: 98%;" >
+                        <div class="subgraph" style="margin-left:  2%;margin-top:2%;background-color: white;color: grey ;size: 14px;text-align: left;" >
+                            <div  style="width: 100%;  ">
+                                <span class="graph-title">Collections</span>
+                            </div>
+                            <div  id="sales_performance_chart_collection" style="height: 200px; width: 100% "></div>
+                        </div>
+
+                        <div class="subgraph" style="margin-left:  2%;margin-top:2%;background-color: #F099A9;color: grey ;size: 14px;text-align: left;" >
+                            <div class="ui-grid-a">
+                                <div  class="ui-block-a" style="text-align:center;color:#FFF">
+                                    <H1 >45%</H1>
+                                    <span>Collection</span>
+                                    <H3 >900/2000</H3>
+                                </div>
+                                <div class="ui-block-b">
+                                    <div  id="sales_performance_chart_collectiontotal" style="height: 150px; width: 100% "></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subgraph" style="margin-left:  2%;margin-top:2%;margin-bottom:2%;background-color: white;color: grey ;size: 14px;text-align: left;" >
+                            <div  style="width: 100%;  ">
+                                <span class="graph-title">Collection Trend</span>
+                            </div>
+                            <div  id="sales_performance_chart_collectiontrend" style="height: 200px; width: 100% "></div>
+                        </div>  
+                    </div>
+
+                </div>
+                <div id="sales-returns" class="ui-body-d ui-content" style="background-color: #EAEBE6;">
+
+                    <div class="subgraph" style="width: 98%;" >
+                        <div class="subgraph" style="margin-left:  2%;margin-top:2%;background-color: white;color: grey ;size: 14px;text-align: left;" >
+                            <div  style="width: 100%;  ">
+                                <span class="graph-title">Returns </span>
+                            </div>
+                            <div  id="sales_performance_chart_returns" style="height: 200px; width: 100% "></div>
+                        </div>
+
+                        <div class="subgraph" style="margin-left:  2%;margin-top:2%;background-color: #F099A9;color: grey ;size: 14px;text-align: left;" >
+                            <div class="ui-grid-a">
+                                <div  class="ui-block-a" style="text-align:center;color:#FFF">
+                                    <H1 >5%</H1>
+                                    <span>Returns</span>
+                                    <H3 >10/2000</H3>
+                                </div>
+                                <div class="ui-block-b">
+                                    <div  id="sales_performance_chart_returntotal" style="height: 150px; width: 100% "></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subgraph" style="margin-left:  2%;margin-top:2%;margin-bottom:2%;background-color: white;color: grey ;size: 14px;text-align: left;" >
+                            <div  style="width: 100%;  ">
+                                <span class="graph-title">Return Trend</span>
+                            </div>
+                            <div  id="sales_performance_chart_returntrend" style="height: 200px; width: 100% "></div>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+
+            <!-- scheme filter  -->
+            <div data-role="page" class="outerdiv "  id="sales-performance-filter" style="/*display: block; z-index:1000; */" >
+
+            </div>
+
+            <!-- -->
+        </div>
+        <!--
+        END sales PERFORMANCE
+        -->
+
+        <!--
+       START - PRODUCT performance chart page
+        -->
+        <div data-role="page"  class="outerdiv mainpage"  id="productperformance-page">
+
+            <div data-role="panel" style="background-color:#354052" data-position-fixed="true" id="overlayPanel" data-display="overlay"  class="bg-l-green side-panel-menu" >
+            </div>
+            <div  data-role="header" class="custpage-header header tp-header  ui-header ui-bar-inherit ui-header-fixed"  data-position="fixed" role="banner">
+                <div class="header-main">
+                    <h2 style="line-height:15px;">Product Performance</h2>
+                    <div class="btn-right ">
+                        <div class="ui-block-a" > <a href= "#sales-performance-filter" data-transition="slideup" data-rel="popup" data-position-to="window" class=" side-menu-btn"> <img src="images/filter.png" style="width:16px;"/> </a></div>
+                        <div class="ui-block-b" >&nbsp;&nbsp;&nbsp;&nbsp; </div>
+                        <div class="ui-block-c" > <a href="#overlayPanel"  data-transition="slide" class=" side-menu-btn"> <img src="images/next-p-btn.png"/> </a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div data-role="tabs" id="product-tabs">
+                <div data-role="navbar">
+                    <ul class="tabs-green-theme">                        
+                        <li><a href="#product-value" data-ajax="false">Value</a></li>
+                        <li><a href="#product-quantity" data-ajax="false">Quantity</a></li>
+                        <li><a href="#product-trend" data-ajax="false">Trend</a></li>
+
+
+                    </ul>
+                </div>
+                <div id="product-value" class="ui-body-d ui-content" style="background-color: #EAEBE6;">
+
+                    <div class="subgraph" style="width: 98%;" >
+                        <div class="subgraph" style="margin-left:  2%;margin-top:2%;background-color: white;color: grey ;size: 14px;text-align: left;" >
+                            <div  style="width: 100%;  ">
+                                <span class="graph-title">Value</span>
+                            </div>
+                            <div  id="product_performance_chart_value" style="height: 450px; width: 100% "></div>
+                        </div> 
+                    </div>
+                </div>
+                <div id="product-quantity" class="ui-body-d ui-content" style="background-color: #EAEBE6;">
+                    <div class="subgraph" style="width: 98%;" >
+                        <div class="subgraph" style="margin-left:  2%;margin-top:2%;background-color: white;color: grey ;size: 14px;text-align: left;" >
+                            <div  style="width: 100%;  ">
+                                <span class="graph-title">Quantity</span>
+                            </div>
+                            <div  id="product_performance_chart_quantity" style="height: 450px; width: 100% "></div>
+                        </div> 
+                    </div>
+
+
+                </div>
+                <div id="product-trend" class="ui-body-d ui-content" style="background-color: #EAEBE6;">
+                    <div class="subgraph" style="width: 98%;" >
+                        <div class="subgraph" style="margin-left:  2%;margin-top:2%;background-color: white;color: grey ;size: 14px;text-align: left;" >
+                            <div  style="width: 100%;  ">
+                                <span class="graph-title">Trend</span>
+                            </div>
+                            <div  id="product_performance_chart_trend" style="height: 450px; width: 100% "></div>
+                        </div> 
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- scheme filter  -->
+            <div data-role="page" class="outerdiv "  id="product-performance-filter" style="/*display: block; z-index:1000; */" >
+
+            </div>
+
+            <!-- -->
+        </div>
+        <!--
+        END PRODUCT PERFORMANCE
+        -->
+        <!--
+              START - LIQUIDITY performance chart page
+        -->
+        <div data-role="page"  class="outerdiv mainpage"  id="liquidityperformance-page">
+
+            <div data-role="panel" style="background-color:#354052" data-position-fixed="true" id="overlayPanel" data-display="overlay"  class="bg-l-green side-panel-menu" >
+            </div>
+            <div  data-role="header" class="custpage-header header tp-header  ui-header ui-bar-inherit ui-header-fixed"  data-position="fixed" role="banner">
+                <div class="header-main">
+                    <h2 style="line-height:15px;">Liquidity Performance</h2>
+                    <div class="btn-right ">
+                        <div class="ui-block-a" > <a href= "#sales-performance-filter" data-transition="slideup" data-rel="popup" data-position-to="window" class=" side-menu-btn"> <img src="images/filter.png" style="width:16px;"/> </a></div>
+                        <div class="ui-block-b" >&nbsp;&nbsp;&nbsp;&nbsp; </div>
+                        <div class="ui-block-c" > <a href="#overlayPanel" data-transition="slide" class=" side-menu-btn"> <img src="images/next-p-btn.png"/> </a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div data-role="tabs" id="liquidity-tabs">
+                <div data-role="navbar">
+                    <ul class="tabs-green-theme">                        
+                        <li><a href="#liquidity-product" data-ajax="false">Product</a></li>
+                        <li><a href="#liquidity-month" data-ajax="false">Month</a></li>
+
+
+                    </ul>
+                </div>
+                <div id="liquidity-product" class="ui-body-d ui-content" style="background-color: #EAEBE6;">
+
+                    <div class="subgraph" style="width: 98%;" >
+                        <div class="subgraph" style="margin-left:  2%;margin-top:2%;background-color: white;color: grey ;size: 14px;text-align: left;" >
+                            <div  style="width: 100%;  ">
+                                <span class="graph-title">Product</span>
+                            </div>
+                            <div  id="liquidity_performance_chart_product" style="height: 450px; width: 100% "></div>
+                        </div> 
+                    </div>
+                </div>
+                <div id="liquidity-month" class="ui-body-d ui-content" style="background-color: #EAEBE6;">
+                    <div class="subgraph" style="width: 98%;" >
+                        <div class="subgraph" style="margin-left:  2%;margin-top:2%;background-color: white;color: grey ;size: 14px;text-align: left;" >
+                            <div  style="width: 100%;  ">
+                                <span class="graph-title">Month</span>
+                            </div>
+                            <div  id="liquidity_performance_chart_month" style="height: 450px; width: 100% "></div>
+
+                        </div> 
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            <!-- scheme filter  -->
+            <div data-role="page" class="outerdiv "  id="product-performance-filter" style="/*display: block; z-index:1000; */" >
+
+            </div>
+
+            <div data-role="popup" id="popupliquidity" data-overlay-theme="b" data-theme="b"  data-corners="false" class="ui-corner-all">
+                <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                <form>
+                    <div class="subgraph" style="background-color: white;color: grey ;size: 14px;" >
+                        <div  style=" ">
+                            <span id="liquidity_performance_chart_trend_title" class="graph-title">Product </span>
+                        </div>
+                        <div  id="liquidity_performance_chart_trend" style="height: 300px;width: 300px;"></div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- -->
+        </div>
+        <!--
+        END LIQUIDITY PERFORMANCE
+        -->
+
+        <!--
+      START - ACCOUNTING REVIEW chart page
+        -->
+        <div data-role="page"  class="outerdiv mainpage"  id="outstandingsummary-page">
+
+            <div data-role="panel" style="background-color:#354052" data-position-fixed="true" id="overlayPanel" data-display="overlay"  class="bg-l-green side-panel-menu" >
+            </div>
+            <div  data-role="header" class="custpage-header header tp-header  ui-header ui-bar-inherit ui-header-fixed"  data-position="fixed" role="banner">
+                <div class="header-main">
+                    <h2 style="line-height:15px;">Liquidity Performance</h2>
+                    <div class="btn-right ">
+                        <div class="ui-block-a" > <a href= "#sales-performance-filter" data-transition="slideup" data-rel="popup" data-position-to="window" class=" side-menu-btn"> <img src="images/filter.png" style="width:16px;"/> </a></div>
+                        <div class="ui-block-b" >&nbsp;&nbsp;&nbsp;&nbsp; </div>
+                        <div class="ui-block-c" > <a href="#overlayPanel"  data-transition="slide" class=" side-menu-btn"> <img src="images/next-p-btn.png"/> </a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div data-role="tabs" id="overdue-tabs">
+                <div data-role="navbar">
+                    <ul class="tabs-green-theme">                        
+                        <li><a href="#outstanding-nondue" data-ajax="false">Non Due</a></li>
+                        <li><a href="#outstanding-overdue" data-ajax="false">Over Due</a></li>
+
+
+                    </ul>
+                </div>
+                <div id="outstanding-nondue" class="ui-body-d ui-content" style="background-color: #EAEBE6;">
+
+                    <div class="subgraph" style="width: 98%;" >
+                        <div class="subgraph " style="margin-left:  2%;margin-top:2%;background-color: #F099A9;color: grey ;size: 14px;text-align: left;" >
+                            <div class="ui-grid-a">
+                                <div class="" style="text-align: Center;" >Center </div>
+
+                                <div  class=" ui-block-a" style="text-align:center;color:#FFF">
+                                    left
+                                </div>
+                                <div class="ui-block-b" style="text-align:center;color:#FFF">
+                                    <div  id="sales_performance_chart_total" style="height: 150px; width: 100% "> right 2</div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="subgraph" style="margin-left:  2%;margin-top:2%;background-color: white;color: grey ;size: 14px;text-align: left;" >
+                            <div  style="width: 100%;  ">
+                                <span class="graph-title">Non due </span>
+                            </div>
+                            <div  id="outstanding_summary_chart_nondue" style="height: 450px; width: 100% "></div>
+                        </div> 
+                    </div>
+                </div>
+                <div id="outstanding-overdue" class="ui-body-d ui-content" style="background-color: #EAEBE6;">
+
+                    <div class="subgraph row" style="margin-left:  2%;margin-top:2%;background-color: #F099A9;color: grey ;size: 14px;text-align: left;" >
+                        <div class="ui-grid-a">
+                            <div class="" style="text-align: Center" >Center </div>
+
+                            <div  class=" ui-block-a" style="text-align:center;color:#FFF">
+                                left
+                            </div>
+                            <div class="ui-block-b" style="text-align:center;color:#FFF">
+                                <div  id="sales_performance_chart_total" style="height: 150px; width: 100% "> right 2</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="subgraph" style="width: 98%;" >
+                        <div class="subgraph" style="margin-left:  2%;margin-top:2%;background-color: white;color: grey ;size: 14px;text-align: left;" >
+                            <div  style="width: 100%;  ">
+                                <span class="graph-title">Over Due</span>
+                            </div>
+                            <div  id="outstanding_summary_chart_overdue" style="height: 400px; width: 100% "></div>
+                        </div> 
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            <!-- scheme filter  -->
+            <div data-role="page" class="outerdiv "  id="liqudity-performance-filter" style="/*display: block; z-index:1000; */" >
+
+            </div>
+
+            <!-- -->
+        </div>
+        <!--
+        END ACCOUNTING REVIEW
+        -->
+
+
+
+
+
+        <!--        <div data-role="page" class="outerdiv mainpage" id="page-menu">
+                    <div data-role="content" class="innerdiv" id="menu">
+        
+                    </div>
+                </div>-->
+
+
+    </body>
+    <script src="lib/jquery-1.10.2.min.js"></script>
+    <script src="lib/jqueryui-1.11.js"></script>
+    <script src="lib/pie.js"></script>
+    <!--<script src="lib/excanvas.js"></script>-->
+    <script src="lib/bar-canvas-graph.js"></script>
+    <script src="lib/jquery.mobile-1.4.2.min.js"></script>
+    <script src="lib/underscore-min.js"></script>
+    <script src="lib/backbone-min.js"></script>       
+    <script src="lib/backbone.controller.js"></script> 
+    <script src="lib/canvasjs.js"></script>
+    <script src="js/helpers/utils.js"></script>
+    <script src="js/helpers/DbHelper.js"></script>
+    <!--     Page Specific Javascripts   -->
+
+
+    <script src="js/models/DashboardModel.js"></script>
+    <script src="js/views/DashboardView.js"></script>
+    <script src="js/controller/DashboardController.js"></script>
+
+
+    <script src="js/models/CustomerPortfolioModel.js"></script>
+    <script src="js/views/CustomerPortfolioView.js"></script>
+    <script src="js/controller/CustomerPortfolioController.js"></script>
+
+    <script src="js/dao/SchemePerformanceDAO.js"></script>
+    <script src="js/models/SchemePerformanceModel.js"></script>
+    <script src="js/views/SchemePerformanceView.js"></script>
+    <script src="js/controller/SchemePerformanceController.js"></script>
+
+
+    <script src="js/dao/SalesPerformanceDAO.js"></script>
+    <script src="js/models/SalesPerformanceModel.js"></script>
+    <script src="js/views/SalesPerformanceView.js"></script>
+    <script src="js/controller/SalesPerformanceController.js"></script>
+
+
+    <script src="js/dao/ProductPerformanceDAO.js"></script>
+    <script src="js/models/ProductPerformanceModel.js"></script>
+    <script src="js/views/ProductPerformanceView.js"></script>
+    <script src="js/controller/ProductPerformanceController.js"></script>
+
+    <script src="js/dao/LiquidityPerformanceDAO.js"></script>
+    <script src="js/models/LiquidityPerformanceModel.js"></script>
+    <script src="js/views/LiquidityPerformanceView.js"></script>
+    <script src="js/controller/LiquidityPerformanceController.js"></script>
+
+
+    <script src="js/dao/OutstandingSummaryDAO.js"></script>
+    <script src="js/models/OutstandingSummaryModel.js"></script>
+    <script src="js/views/OutstandingSummaryView.js"></script>
+    <script src="js/controller/OutstandingSummaryController.js"></script>
+
+
+
+
+
+    <script src="js/models/loginModel.js"></script>  
+    <script src="js/views/LoginFormView.js"></script>
+    <script src="js/controller/LoginController.js"></script>
+
+    <script src="js/models/MenuModel.js"></script>
+    <script src="js/views/MenuView.js"></script>
+    <script src="js/controller/MenuController.js"></script>
+
+    <script src="js/views/DashboardInner.js"></script>
+
+    <script>
+        //        var menuController = new MenuController();
+        //        var dashboardController = new DashboardController();
+        var loginController = new LoginController();
+        //        var CustomerPortfolioController = new CustomerPortfolioController();
+        $.get('tpl/SideMenuView.html', function(res) {
+            $(".side-panel-menu").html(res);
+            $.mobile.activePage.trigger("refresh");
+        });
+
+        $("#customerporfolio-page").on('pageinit', function() {
+            var customerPortfolioController = new CustomerPortfolioController();
+        });
+
+//        $("#schemeperformance-page").on('pageinit', function() {
+//            var schemePerformanceController = new SchemePerformanceController();
+//        });
+//        
+        $("#schemeperformance-page").on('pageshow', function() {
+            var schemePerformanceController = new SchemePerformanceController();
+        });
+
+        $("#scheme-performance-filter").on('pageshow', function() {
+            //  var schemePerformanceController = new SchemePerformanceController();
+        });
+
+        $("#salesperformance-page").on('pageshow', function() {
+            var salesPerformanceController = new SalesPerformanceController();
+        });
+        $("#productperformance-page").on('pageshow', function() {
+            var productPerformanceController = new ProductPerformanceController();
+        });
+
+        $("#liquidityperformance-page").on('pageshow', function() {
+            var liquidityPerformanceController = new LiquidityPerformanceController();
+        });
+
+
+        $("#outstandingsummary-page").on('pageshow', function() {
+            var outstandingSummaryController = new OutstandingSummaryController();
+        });
+
+
+        $(document).on('pageinit', function() {
+            $('#page-dashboard').bind("pagebeforeshow", function() {
+                $("#td-tabs").show();
+                $("#dash-inner-content").hide();
+            });
+//            $('#customerporfolio-page').bind("pagebeforeshow", function() {
+//                var customerPortfolioController = new CustomerPortfolioController();
+//            });
+            $(".close-icon").click(function() {
+                $(".login-header").hide();
+            });
+
+            openGraphPopup = function(product)
+            {
+                //console.log(product.label);
+                $('#product_performance_chart_title').html(product.label);
+                $("#popupscheme").popup("open");
+                chart2.render();
+            }
+            openGraphLiquidityPopup = function(product)
+            {
+                // console.log(product.label);
+                $('#liquidity_performance_chart_trend_title').html(product.label);
+                $("#popupliquidity").popup("open");
+                chartliquidity_trend.render();
+            }
+
+
+            window.onload = function() {
+
+            }
+
+            $(document).ready(function() {
+                $("#tabs").tabs({
+                    activate: function(event, ui) {
+
+                        chart3.render();
+                        chart2.render();
+                        chart.render();
+                    }
+                });
+
+
+                $("#sales-tabs").tabs({
+                    activate: function(event, ui) {
+
+                        chartsales_sales.render();
+                        chartsales_total.render();
+                        chartsales_trend.render();
+
+                        chartsales_collection.render();
+                        chartsales_collectiontotal.render();
+                        chartsales_collectiontrend.render();
+
+                        chartsales_returns.render();
+                        chartsales_returntotal.render();
+                        chartsales_returntrend.render();
+                    }
+                });
+                $("#product-tabs").tabs({
+                    activate: function(event, ui) {
+                        chartproduct_value.render();
+                        chartproduct_quantity.render();
+                        chartproduct_trend.render();
+                    }
+                });
+
+                $("#liquidity-tabs").tabs({
+                    activate: function(event, ui) {
+                        chartliquidity_product.render();
+                        chartliquidity_month.render();
+                        chartliquidity_trend.render();
+                    }
+                });
+
+
+                $("#overdue-tabs").tabs({
+                    activate: function(event, ui) {
+                        chartoutstanding_over.render();
+                        chartoutstanding_nondue.render();
+                    }
+                });
+            });
+
+//
+//             $.mobile.changePage('#page2',{transtion:'none'}); 
+//            $.mobile.defaultPageTransition = 'fade';
+
+
+
+            $('canvas').unbind('touchstart touchmove touchend mouseenter mouseleave click mousedown mouseup');
+
+
+
+            //            if (localStorage.getItem("token") == null) {
+            //                var loginController = new LoginController();
+            //            } else {
+            //                var dashboardController = new DashboardController();
+            //                $.mobile.changePage("#page-dashboard", {transition: "slide"});
+            //            }
+        });
+        //$(document).on('click', '.side-menu-btn', function() {
+        //            alert("ok");
+        //                $.get('tpl/SideMenuView.html',function(res){
+        //                    console.log(res);
+        //                   $(".side-panel-menu").html(res); 
+        //                });
+        //});
+
+//                $(".side-panel-menu").panel({
+//                    beforeopen: function(event, ui) {
+//                        alert('open');
+//                    }
+//                });
+
+    </script>
+
+
+</html>
+
+

@@ -1,0 +1,1054 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Insert title here</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />-->
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.2.css">
+        <script src="lib/jquery-1.10.2.min.js"></script>
+        <script src="lib/jqueryui-1.11.js"></script>
+        <script src="lib/jquery.mobile-1.4.2.min.js"></script>
+        <link rel="stylesheet" href="css/custom.css"></link>
+        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css"></link>
+
+
+
+        <style>
+            @font-face {
+                font-family: Roboto-Light;
+                src: url(css/font/Roboto-Light.ttf);
+            }
+            @font-face {
+                font-family: Roboto-Regular;
+                src: url(css/font/Roboto-Regular.ttf);
+            }
+            @font-face {
+                font-family:Roboto-Medium;
+                src:url(css/font/Roboto-Medium.ttf);
+            }
+            @font-face {
+                font-family:Roboto-Bold;
+                src:url(css/font/Roboto-Bold.ttf);
+            }
+
+
+            /* Bar: Toolbars, dividers, slider track */
+            .ui-bar-a,
+            .ui-page-theme-a .ui-bar-inherit,
+            html .ui-bar-a .ui-bar-inherit,
+            html .ui-body-a .ui-bar-inherit,
+            html body .ui-group-theme-a .ui-bar-inherit {
+                background-color: 			#e9e9e9 /*{a-bar-background-color}*/;
+                border-color:	 		#ddd /*{a-bar-border}*/;
+                color: 					#333 /*{a-bar-color}*/;
+                text-shadow: 0 /*{a-bar-shadow-x}*/ 1px /*{a-bar-shadow-y}*/ 0 /*{a-bar-shadow-radius}*/ 	#eee /*{a-bar-shadow-color}*/;
+                font-weight: bold;
+            }
+            .ui-bar-a {
+                border-width: 1px;
+                border-style: solid;
+            }
+            /* Page and overlay */
+            .ui-overlay-a,
+            .ui-page-theme-a,
+            .ui-page-theme-a .ui-panel-wrapper {
+                background-color: 			#f9f9f9 /*{a-page-background-color}*/;
+                border-color:	 		#bbb /*{a-page-border}*/;
+                color: 					#333 /*{a-page-color}*/;
+                text-shadow: 0 /*{a-page-shadow-x}*/ 1px /*{a-page-shadow-y}*/ 0 /*{a-page-shadow-radius}*/ 	#f3f3f3 /*{a-page-shadow-color}*/;
+            }
+            /* Body: Read-only lists, text inputs, collapsible content */
+            .ui-body-a,
+            .ui-page-theme-a .ui-body-inherit,
+            html .ui-bar-a .ui-body-inherit,
+            html .ui-body-a .ui-body-inherit,
+            html body .ui-group-theme-a .ui-body-inherit,
+            html .ui-panel-page-container-a {
+                background-color: 			#fff /*{a-body-background-color}*/;
+                border-color:	 		#ddd /*{a-body-border}*/;
+                color: 					#333 /*{a-body-color}*/;
+                text-shadow: 0 /*{a-body-shadow-x}*/ 1px /*{a-body-shadow-y}*/ 0 /*{a-body-shadow-radius}*/ 	#f3f3f3 /*{a-body-shadow-color}*/;
+            }
+            .ui-body-a {
+                border-width: 1px;
+                border-style: solid;
+            }
+            /* Links */
+            .ui-page-theme-a a,
+            html .ui-bar-a a,
+            html .ui-body-a a,
+            html body .ui-group-theme-a a {
+                color: #3388cc /*{a-link-color}*/;
+                font-weight: bold;
+            }
+            .ui-page-theme-a a:visited,
+            html .ui-bar-a a:visited,
+            html .ui-body-a a:visited,
+            html body .ui-group-theme-a a:visited {
+                color: #3388cc /*{a-link-visited}*/;
+            }
+            .ui-page-theme-a a:hover,
+            html .ui-bar-a a:hover,
+            html .ui-body-a a:hover,
+            html body .ui-group-theme-a a:hover {
+                color: #005599 /*{a-link-hover}*/;
+            }
+            .ui-page-theme-a a:active,
+            html .ui-bar-a a:active,
+            html .ui-body-a a:active,
+            html body .ui-group-theme-a a:active {
+                color: #005599 /*{a-link-active}*/;
+            }
+            /* Button up */
+            .ui-page-theme-a .ui-btn,
+            html .ui-bar-a .ui-btn,
+            html .ui-body-a .ui-btn,
+            html body .ui-group-theme-a .ui-btn,
+            html head + body .ui-btn.ui-btn-a,
+            /* Button visited */
+            .ui-page-theme-a .ui-btn:visited,
+            html .ui-bar-a .ui-btn:visited,
+            html .ui-body-a .ui-btn:visited,
+            html body .ui-group-theme-a .ui-btn:visited,
+            html head + body .ui-btn.ui-btn-a:visited {
+                background-color: 			#f6f6f6 /*{a-bup-background-color}*/;
+                border-color:	 		#ddd /*{a-bup-border}*/;
+                color: 					#333 /*{a-bup-color}*/;
+                text-shadow: 0 /*{a-bup-shadow-x}*/ 1px /*{a-bup-shadow-y}*/ 0 /*{a-bup-shadow-radius}*/ #f3f3f3 /*{a-bup-shadow-color}*/;
+            }
+            /* Button hover */
+            .ui-page-theme-a .ui-btn:hover,
+            html .ui-bar-a .ui-btn:hover,
+            html .ui-body-a .ui-btn:hover,
+            html body .ui-group-theme-a .ui-btn:hover,
+            html head + body .ui-btn.ui-btn-a:hover {
+                background-color: 			#ededed /*{a-bhover-background-color}*/;
+                border-color:	 		#ddd /*{a-bhover-border}*/;
+                color: 					#333 /*{a-bhover-color}*/;
+                text-shadow: 0 /*{a-bhover-shadow-x}*/ 1px /*{a-bhover-shadow-y}*/ 0 /*{a-bhover-shadow-radius}*/ #f3f3f3 /*{a-bhover-shadow-color}*/;
+            }
+            /* Button down */
+            .ui-page-theme-a .ui-btn:active,
+            html .ui-bar-a .ui-btn:active,
+            html .ui-body-a .ui-btn:active,
+            html body .ui-group-theme-a .ui-btn:active,
+            html head + body .ui-btn.ui-btn-a:active {
+                background-color: 			#e8e8e8 /*{a-bdown-background-color}*/;
+                border-color:	 		#ddd /*{a-bdown-border}*/;
+                color: 					#333 /*{a-bdown-color}*/;
+                text-shadow: 0 /*{a-bdown-shadow-x}*/ 1px /*{a-bdown-shadow-y}*/ 0 /*{a-bdown-shadow-radius}*/  /*{a-bdown-shadow-color}*/;
+            }
+            /* Active button */
+            .ui-page-theme-a .ui-btn.ui-btn-active,
+            html .ui-bar-a .ui-btn.ui-btn-active,
+            html .ui-body-a .ui-btn.ui-btn-active,
+            html body .ui-group-theme-a .ui-btn.ui-btn-active,
+            html head + body .ui-btn.ui-btn-a.ui-btn-active,
+            /* Active checkbox icon */
+            .ui-page-theme-a .ui-checkbox-on:after,
+            html .ui-bar-a .ui-checkbox-on:after,
+            html .ui-body-a .ui-checkbox-on:after,
+            html body .ui-group-theme-a .ui-checkbox-on:after,
+            .ui-btn.ui-checkbox-on.ui-btn-a:after,
+            /* Active flipswitch background */
+            .ui-page-theme-a .ui-flipswitch-active,
+            html .ui-bar-a .ui-flipswitch-active,
+            html .ui-body-a .ui-flipswitch-active,
+            html body .ui-group-theme-a .ui-flipswitch-active,
+            html body .ui-flipswitch.ui-bar-a.ui-flipswitch-active,
+            /* Active slider track */
+            .ui-page-theme-a .ui-slider-track .ui-btn-active,
+            html .ui-bar-a .ui-slider-track .ui-btn-active,
+            html .ui-body-a .ui-slider-track .ui-btn-active,
+            html body .ui-group-theme-a .ui-slider-track .ui-btn-active,
+            html body div.ui-slider-track.ui-body-a .ui-btn-active {
+                background-color: 		# /*{a-active-background-color}*/;
+                border-color:	 		# /*{a-active-border}*/;
+                color: 					#fff /*{a-active-color}*/;
+                text-shadow: 0 /*{a-active-shadow-x}*/ 1px /*{a-active-shadow-y}*/ 0 /*{a-active-shadow-radius}*/ #005599 /*{a-active-shadow-color}*/;
+            }
+            /* Active radio button icon */
+            .ui-page-theme-a .ui-radio-on:after,
+            html .ui-bar-a .ui-radio-on:after,
+            html .ui-body-a .ui-radio-on:after,
+            html body .ui-group-theme-a .ui-radio-on:after,
+            .ui-btn.ui-radio-on.ui-btn-a:after {
+                border-color:			# /*{a-active-background-color}*/;
+            }
+            /* Focus */
+            .ui-page-theme-a .ui-btn:focus,
+            html .ui-bar-a .ui-btn:focus,
+            html .ui-body-a .ui-btn:focus,
+            html body .ui-group-theme-a .ui-btn:focus,
+            html head + body .ui-btn.ui-btn-a:focus,
+            /* Focus buttons and text inputs with div wrap */
+            .ui-page-theme-a .ui-focus,
+            html .ui-bar-a .ui-focus,
+            html .ui-body-a .ui-focus,
+            html body .ui-group-theme-a .ui-focus,
+            html head + body .ui-btn-a.ui-focus,
+            html head + body .ui-body-a.ui-focus {
+                -webkit-box-shadow: 0 0 12px 	# /*{a-active-background-color}*/;
+                -moz-box-shadow: 0 0 12px 		#/*{a-active-background-color}*/;
+                box-shadow: 0 0 12px 			# /*{a-active-background-color}*/;
+            }
+            /* B
+            -----------------------------------------------------------------------------------------------------------*/
+            /* Bar: Toolbars, dividers, slider track */
+            .ui-bar-b,
+            .ui-page-theme-b .ui-bar-inherit,
+            html .ui-bar-b .ui-bar-inherit,
+            html .ui-body-b .ui-bar-inherit,
+            html body .ui-group-theme-b .ui-bar-inherit {
+                background-color: 			#1d1d1d /*{b-bar-background-color}*/;
+                border-color:	 		#1b1b1b /*{b-bar-border}*/;
+                color: 					#fff /*{b-bar-color}*/;
+                text-shadow: 0 /*{b-bar-shadow-x}*/ 1px /*{b-bar-shadow-y}*/ 0 /*{b-bar-shadow-radius}*/ 	#111 /*{b-bar-shadow-color}*/;
+                font-weight: bold;
+            }
+            .ui-bar-b {
+                border-width: 1px;
+                border-style: solid;
+            }
+            /* Page and overlay */
+            .ui-overlay-b,
+            .ui-page-theme-b,
+            .ui-page-theme-b .ui-panel-wrapper {
+                background-color: 			#252525 /*{b-page-background-color}*/;
+                border-color:	 		#454545 /*{b-page-border}*/;
+                color: 					#fff /*{b-page-color}*/;
+                text-shadow: 0 /*{b-page-shadow-x}*/ 1px /*{b-page-shadow-y}*/ 0 /*{b-page-shadow-radius}*/ 	#111 /*{b-page-shadow-color}*/;
+            }
+            /* Body: Read-only lists, text inputs, collapsible content */
+            .ui-body-b,
+            .ui-page-theme-b .ui-body-inherit,
+            html .ui-bar-b .ui-body-inherit,
+            html .ui-body-b .ui-body-inherit,
+            html body .ui-group-theme-b .ui-body-inherit,
+            html .ui-panel-page-container-b {
+                background-color: 			#2a2a2a /*{b-body-background-color}*/;
+                border-color:	 		#1d1d1d /*{b-body-border}*/;
+                color: 					#fff /*{b-body-color}*/;
+                text-shadow: 0 /*{b-body-shadow-x}*/ 1px /*{b-body-shadow-y}*/ 0 /*{b-body-shadow-radius}*/ 	#111 /*{b-body-shadow-color}*/;
+            }
+            .ui-body-b {
+                border-width: 1px;
+                border-style: solid;
+            }
+            /* Links */
+            .ui-page-theme-b a,
+            html .ui-bar-b a,
+            html .ui-body-b a,
+            html body .ui-group-theme-b a {
+                color: #22aadd /*{b-link-color}*/;
+                font-weight: bold;
+            }
+            .ui-page-theme-b a:visited,
+            html .ui-bar-b a:visited,
+            html .ui-body-b a:visited,
+            html body .ui-group-theme-b a:visited {
+                color: #22aadd /*{b-link-visited}*/;
+            }
+            .ui-page-theme-b a:hover,
+            html .ui-bar-b a:hover,
+            html .ui-body-b a:hover,
+            html body .ui-group-theme-b a:hover {
+                color: #0088bb /*{b-link-hover}*/;
+            }
+            .ui-page-theme-b a:active,
+            html .ui-bar-b a:active,
+            html .ui-body-b a:active,
+            html body .ui-group-theme-b a:active {
+                color: #0088bb /*{b-link-active}*/;
+            }
+            /* Button up */
+            .ui-page-theme-b .ui-btn,
+            html .ui-bar-b .ui-btn,
+            html .ui-body-b .ui-btn,
+            html body .ui-group-theme-b .ui-btn,
+            html head + body .ui-btn.ui-btn-b,
+            /* Button visited */
+            .ui-page-theme-b .ui-btn:visited,
+            html .ui-bar-b .ui-btn:visited,
+            html .ui-body-b .ui-btn:visited,
+            html body .ui-group-theme-b .ui-btn:visited,
+            html head + body .ui-btn.ui-btn-b:visited {
+                background-color: 			#fff /*{b-bup-background-color}*/;
+                border-color:	 		#ddd /*{b-bup-border}*/;
+                color: 					#fff /*{b-bup-color}*/;
+                text-shadow: 0 /*{b-bup-shadow-x}*/ 1px /*{b-bup-shadow-y}*/ 0 /*{b-bup-shadow-radius}*/ #111 /*{b-bup-shadow-color}*/;
+            }
+            /* Button hover */
+            .ui-page-theme-b .ui-btn:hover,
+            html .ui-bar-b .ui-btn:hover,
+            html .ui-body-b .ui-btn:hover,
+            html body .ui-group-theme-b .ui-btn:hover,
+            html head + body .ui-btn.ui-btn-b:hover {
+                background-color: 			#fff /*{b-bhover-background-color}*/;
+                border-color:	 		#ddd/*{b-bhover-border}*/;
+                color: 					#fff /*{b-bhover-color}*/;
+                text-shadow: 0 /*{b-bhover-shadow-x}*/ 1px /*{b-bhover-shadow-y}*/ 0 /*{b-bhover-shadow-radius}*/ #111 /*{b-bhover-shadow-color}*/;
+            }
+            /* Button down */
+            .ui-page-theme-b .ui-btn:active,
+            html .ui-bar-b .ui-btn:active,
+            html .ui-body-b .ui-btn:active,
+            html body .ui-group-theme-b .ui-btn:active,
+            html head + body .ui-btn.ui-btn-b:active {
+                background-color: 			# /*{b-bdown-background-color}*/;
+                border-color:	 		# /*{b-bdown-border}*/;
+                color: 					#fff /*{b-bdown-color}*/;
+                text-shadow: 0 /*{b-bdown-shadow-x}*/ 1px /*{b-bdown-shadow-y}*/ 0 /*{b-bdown-shadow-radius}*/ #111 /*{b-bdown-shadow-color}*/;
+            }
+            /* Active button */
+            .ui-page-theme-b .ui-btn.ui-btn-active,
+            html .ui-bar-b .ui-btn.ui-btn-active,
+            html .ui-body-b .ui-btn.ui-btn-active,
+            html body .ui-group-theme-b .ui-btn.ui-btn-active,
+            html head + body .ui-btn.ui-btn-b.ui-btn-active,
+            /* Active checkbox icon */
+            .ui-page-theme-b .ui-checkbox-on:after,
+            html .ui-bar-b .ui-checkbox-on:after,
+            html .ui-body-b .ui-checkbox-on:after,
+            html body .ui-group-theme-b .ui-checkbox-on:after,
+            .ui-btn.ui-checkbox-on.ui-btn-b:after,
+            /* Active flipswitch background */
+            .ui-page-theme-b .ui-flipswitch-active,
+            html .ui-bar-b .ui-flipswitch-active,
+            html .ui-body-b .ui-flipswitch-active,
+            html body .ui-group-theme-b .ui-flipswitch-active,
+            html body .ui-flipswitch.ui-bar-b.ui-flipswitch-active,
+            /* Active slider track */
+            .ui-page-theme-b .ui-slider-track .ui-btn-active,
+            html .ui-bar-b .ui-slider-track .ui-btn-active,
+            html .ui-body-b .ui-slider-track .ui-btn-active,
+            html body .ui-group-theme-b .ui-slider-track .ui-btn-active,
+            html body div.ui-slider-track.ui-body-b .ui-btn-active {
+                background-color: 		#/*{b-active-background-color}*/;
+                border-color:	 		#/*{b-active-border}*/;
+                color: 					#fff /*{b-active-color}*/;
+                text-shadow: 0 /*{b-active-shadow-x}*/ 1px /*{b-active-shadow-y}*/ 0 /*{b-active-shadow-radius}*/ #0088bb /*{b-active-shadow-color}*/;
+            }
+            /* Active radio button icon */
+            .ui-page-theme-b .ui-radio-on:after,
+            html .ui-bar-b .ui-radio-on:after,
+            html .ui-body-b .ui-radio-on:after,
+            html body .ui-group-theme-b .ui-radio-on:after,
+            .ui-btn.ui-radio-on.ui-btn-b:after {
+                border-color:			# /*{b-active-background-color}*/;
+            }
+            /* Focus */
+            .ui-page-theme-b .ui-btn:focus,
+            html .ui-bar-b .ui-btn:focus,
+            html .ui-body-b .ui-btn:focus,
+            html body .ui-group-theme-b .ui-btn:focus,
+            html head + body .ui-btn.ui-btn-b:focus,
+            /* Focus buttons and text inputs with div wrap */
+            .ui-page-theme-b .ui-focus,
+            html .ui-bar-b .ui-focus,
+            html .ui-body-b .ui-focus,
+            html body .ui-group-theme-b .ui-focus,
+            html head + body .ui-btn-b.ui-focus,
+            html head + body .ui-body-b.ui-focus {
+                -webkit-box-shadow: 0 0 12px 	#22aadd /*{b-active-background-color}*/;
+                -moz-box-shadow: 0 0 12px 		#22aadd /*{b-active-background-color}*/;
+                box-shadow: 0 0 12px 			#22aadd /*{b-active-background-color}*/;
+            }
+            /* Structure */
+            /* Disabled
+            -----------------------------------------------------------------------------------------------------------*/
+
+
+            body {
+                color:#FFF;
+                font-family:Roboto-Light; 
+            }
+
+            p,h1,h2,h3,h4,h5{
+                text-shadow: none !important;
+            }
+            .row {}
+            .ui-header-fixed {
+                padding: 0px;
+            }
+            .ui-footer{
+                padding: 0;
+            }
+            .header-main h2 {
+                font-size:30px;
+                font-family:Roboto-Light; 
+            }
+            .header-main h4 {
+                font-size:14px;
+            }
+
+            .header-main h2,h4 {
+                color:#FFF;
+                font-weight:100;
+                line-height:1px; 
+            }
+            .header-main {
+                width:100%;
+                height:auto;
+                overflow:auto; 
+                background:#1A9146; 
+                text-align:center;
+                padding:0px 0 0px 0; 
+            }
+            .btn-right {
+                position:absolute;
+                top:15px;
+                right:20px;
+            }
+
+
+            /*-----------------------Customer-list------------------------------------*/
+            .filter-btn {
+                position:absolute;
+                top:15px;
+                right:50px;
+            }
+            .filter-btn img {
+                width:15px !important;
+                margin-top:2px; 
+            }
+            .search-order {
+                width:100%;
+                height:auto; 
+                margin:85px 0 0 0; 
+                padding:0px 0px 0px 0px ;
+                background:#FFF;
+
+
+
+            }
+            .search-order form {
+                padding:0 10px 0 10px !important;
+                position:fixed !important;
+                z-index:1000;
+                width:100% !important; 
+                background:#FFF;
+                top:90px;
+
+            }
+
+
+            .search-order ul li {
+                padding:5px 10px 0 10px !important;
+                background:#f1f1f1 !important;
+                border-bottom:1px solid #dfdfdf !important;
+                border-radius:0px !important;
+
+
+
+
+            }
+            .search-order ul li .ui-grid-a .ui-block-a {
+                width:65%;
+                height:auto;
+                overflow:auto;
+                padding:5px 0 5px 0; 
+            }
+            .search-order ul li .ui-grid-a .ui-block-b {
+                width:35%;
+                height:auto;
+                overflow:auto;
+                padding:5px 0 5px 0; 
+            }
+            .search-order ul li h4{
+                line-height:18px;
+                margin-top:0px; 
+            }
+            .select-cust {
+                background:#e9e9e9;
+                font-family:Roboto-Bold;
+                font-size:20px;
+                line-height:40px;
+                padding:0px 10px 0 10px;
+                color:#777777;
+                text-align:left; 
+                text-shadow:none !important;
+                position:fixed !important;
+                z-index:1000;
+                width:100%;
+                top:50px 
+
+
+            }
+            .green-heading-1 {
+                font-family: Roboto-Regular;
+                font-size:24px ;
+                color:#1a9146 !important; 
+
+            }
+            .gry-sub-heading {
+                font-family:Roboto-Light;
+                font-size:20px;
+                color:#9d9d9d !important; 
+            }
+            .online-offline {
+                text-align:right;
+                color:#62bf34;
+                font-size:20px;
+                font-family: Roboto-Regular;
+            }
+            .online-offline_2 {
+                text-align:right;
+                color:#b9b9b9;
+                font-size:20px;
+                font-family: Roboto-Regular;
+            } 
+            /*--------------------------------------*/
+
+            .cut-list-filter .ui-field-contain {
+                width:100%;
+                font-family: Roboto-Regular;
+                margin:8px 0 5px 0;
+                padding:0px; 
+
+            }
+            .cut-list-filter .ui-btn {
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                border-radius: 0px;
+                background: #f1f1f1;
+            }
+            .cut-list-filter .ui-btn:hover {
+                background: #f1f1f1;
+            }
+            .cut-list-filter .ui-field-contain span {
+                font-size:16px;
+                color:#616161 !important;
+                text-shadow: none!important;
+                font-family: Roboto-Light;
+                text-align:left !important;
+                background:url("./images/drop-down-icon.png") no-repeat right;
+                background-size:20px;    
+            }
+            .cut-list-filter .ui-btn-icon-right {
+                padding-right:15px !important; 
+            }
+            .cut-list-filter .ui-btn-icon-right:after {
+                display:none!important;
+            }
+            .cut-list-filter .ui-listview li  {
+                background:#1a9146!important;
+                color:#FFF;
+                margin-bottom:0px ;
+                text-shadow:none !important; 
+            }
+            .cut-list-filter .ui-field-contain {
+                margin:0px !important; 
+            }
+            .cut-list-filter .ui-select{
+
+                margin:0px; 
+
+
+            }
+            #select-custom-18-listbox-popup  .ui-btn,
+            #select-custom-19-listbox-popup  .ui-btn,
+            #select-custom-20-listbox-popup  .ui-btn,
+            #select-custom-21-listbox-popup  .ui-btn{
+                background:#FFFFFF !important; 
+                color:#1a9146;
+                text-shadow:none !important; 
+
+            }
+
+            #select-custom-18-listbox-popup  .ui-btn-active ,
+            #select-custom-19-listbox-popup  .ui-btn-active,
+            #select-custom-20-listbox-popup  .ui-btn-active,
+            #select-custom-21-listbox-popup  .ui-btn-active{
+                background:#fff !important;
+                color:#FFF;
+
+            }
+            #select-custom-18-listbox-popup  .ui-btn:hover,
+            #select-custom-19-listbox-popup  .ui-btn:hover,
+            #select-custom-20-listbox-popup  .ui-btn:hover,
+            #select-custom-21-listbox-popup  .ui-btn:hover{
+                background:#1a9146 !important; 
+                color:#FFF;
+                text-shadow:none !important; 
+
+            }
+            #select-custom-18-listbox-popup .ui-listview li a,
+            #select-custom-19-listbox-popup .ui-listview li a,
+            #select-custom-20-listbox-popup .ui-listview li a,
+            #select-custom-21-listbox-popup .ui-listview li a{
+                border-color:#e2e2e2 !important; 
+            }
+            .filter-select-btn {
+                width:100% !important;
+                background:#1a9146 !important;
+                padding:5px 0 5px 0;
+                position:fixed !important;
+                bottom:0; 
+                z-index:1000;
+
+
+            }
+            .ui-controlgroup-controls {
+                width:100%; 
+            }
+            .filter-select-btn .ui-btn {
+                background:#1a9146 !important;
+                color:#FFF;
+                font-family: Roboto-Light !important;
+                font-size:14px;
+                height:20px;
+                line-height:20px;
+                margin:0px;
+                padding:0px; 
+                float:left;
+                border:none!important; 
+                width:50% !important; 
+                text-shadow:none !important; 
+            }
+            .filter-select-btn .ui-btn:hover {
+                color:#FFF;
+            }
+            .filter-select-btn .ui-btn img {
+                width:20px;
+            }
+
+
+
+
+
+
+
+
+            /* Small devices (tablets, 768px and up) */
+            @media (min-width: 200px) {
+                .ytd-sales-header img{
+                    width: 15px;
+                }
+                .header-main h2 {
+                    font-size:18px;        
+                }
+                .header-main h4 {
+                    font-size:10px;        
+                }
+                .header-main img {
+                    width:6px; 
+                }
+                /*------------------------------------*/
+                .select-cust {
+                    font-size:12px; 
+                }
+                .green-heading-1 {
+                    font-size:12px;
+                    text-overflow:ellipsis;
+                }
+                .gry-sub-heading {
+                    font-size:11px !important;
+                }
+                .online-offline {
+                    font-size:10px;
+                    margin:8px 0 0 0; 
+                }
+                .online-offline_2 {
+                    font-size:10px;
+                    margin:8px 0 0 0;
+                }
+                .online-offline img {
+                    width:24px !important;
+                    margin:0px !important; 
+                }
+                .online-offline_2 img {
+                    width:24px !important;
+                    margin:0px !important;
+                }
+
+
+
+
+            }
+
+            @media (min-width: 300px) {
+                .header-main h2 {
+                    font-size:18px;
+
+                }
+                .header-main img {
+                    width:6px;
+
+                }
+                /*---------------------------------------*/
+                .green-heading-1 {
+                    font-size:14px;
+                    text-overflow:ellipsis;
+                }
+                .gry-sub-heading {
+                    font-size:12px !important;
+                }
+                .online-offline {
+                    font-size:12px;
+                    margin:8px 0 0 0; 
+                }
+                .online-offline_2 {
+                    font-size:12px;
+                    margin:8px 0 0 0;
+                }
+                .online-offline img {
+                    width:30px !important;
+                    margin:0px !important; 
+                }
+                .online-offline_2 img {
+                    width:30px !important;
+                    margin:0px !important;
+                }
+
+
+
+
+
+            }
+
+
+            /* Small devices (tablets, 768px and up) */
+            @media (min-width: 560px) {
+
+                .ytd-sales-header img{
+                    width: 20px;
+                }
+
+
+
+            }
+
+
+            /* Small devices (tablets, 768px and up) */
+            @media (min-width: 768px) {
+
+            }
+            /* Medium devices (desktops, 992px and up) */
+            @media (min-width: 992px) {
+
+            }
+
+
+
+        </style>
+
+    </style>
+
+</head>
+<body>
+
+    <div data-role="page" class="outerdiv promo "  id="page-cutomer-list">
+        <div data-role="header" class="header tp-header  ui-header ui-bar-inherit ui-header-fixed slidedown"  data-position="fixed" role="banner">
+            <div class="header-main">
+                <h2 style="line-height:20px;">New Order</h2>
+                <a href="#page-cutomer-filter" data-transition="slideup" class="filter-btn"> <img src="images/filter-icon.png"/> </a>
+                <a href="#" class="btn-right"> <img src="images/next-p-btn.png"/> </a>
+            </div>
+
+
+
+
+        </div>
+
+        <div data-role="main" class="ui-content">
+            <div class="select-cust">
+                Select Customers
+            </div>
+            <div class="search-order">
+
+                <ul data-role="listview"  data-filter="true" data-filter-placeholder="Search customer..." data-filter-theme="a" data-inset="true" >
+
+
+                    <li>
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <h2 class="green-heading-1" >Ballarpur Industries Limited</h2>
+                                <h4 class="gry-sub-heading">Gujarat, Ahmedabad</h4>
+                            </div>
+                            <div class="ui-block-b">
+                                <div class="online-offline">
+                                    On web <img src="images/on-web-icon.png"/>
+                                </div>
+                            </div>
+                        </div
+                    </li>
+                    <li>
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <h2 class="green-heading-1" >Ador Powertron Limited</h2>
+                                <h4 class="gry-sub-heading">Gujarat, Ahmedabad</h4>
+                            </div>
+                            <div class="ui-block-b">
+                                <div class="online-offline">
+                                    On web <img src="images/on-web-icon.png"/>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><div class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <h2 class="green-heading-1" >CenturyLink India</h2>
+                                <h4 class="gry-sub-heading">Gujarat, Ahmedabad</h4>
+                            </div>
+                            <div class="ui-block-b">
+                                <div class="online-offline_2">
+                                    On my phone <img src="images/on-my-phone-icon.png"/>
+                                </div>
+                            </div>
+                        </div></li>
+                    <li><div class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <h2 class="green-heading-1" >Indo Gulf Fertilisers</h2>
+                                <h4 class="gry-sub-heading">Gujarat, Ahmedabad</h4>
+                            </div>
+                            <div class="ui-block-b">
+                                <div class="online-offline">
+                                    On web <img src="images/on-web-icon.png"/>
+                                </div>
+                            </div>
+                        </div></li>
+                    <li><div class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <h2 class="green-heading-1" >Jaiprakash Associates</h2>
+                                <h4 class="gry-sub-heading">Gujarat, Ahmedabad</h4>
+                            </div>
+                            <div class="ui-block-b">
+                                <div class="online-offline">
+                                    On web <img src="images/on-web-icon.png"/>
+                                </div>
+                            </div>
+                        </div></li>
+                    <li><div class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <h2 class="green-heading-1" >Visaka Industries Limited</h2>
+                                <h4 class="gry-sub-heading">Gujarat, Ahmedabad</h4>
+                            </div>
+                            <div class="ui-block-b">
+                                <div class="online-offline">
+                                    On web <img src="images/on-web-icon.png"/>
+                                </div>
+                            </div>
+                        </div></li>
+                    <li><div class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <h2 class="green-heading-1" >Elips Industries Limited</h2>
+                                <h4 class="gry-sub-heading">Gujarat, Ahmedabad</h4>
+                            </div>
+                            <div class="ui-block-b">
+                                <div class="online-offline">
+                                    On web <img src="images/on-web-icon.png"/>
+                                </div>
+                            </div>
+                        </div></li>
+                    <li><div class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <h2 class="green-heading-1" >Farma Industries Limited</h2>
+                                <h4 class="gry-sub-heading">Gujarat, Ahmedabad</h4>
+                            </div>
+                            <div class="ui-block-b">
+                                <div class="online-offline">
+                                    On web <img src="images/on-web-icon.png"/>
+                                </div>
+                            </div>
+                        </div></li>
+                    <li><div class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <h2 class="green-heading-1" >Gupta Industries Limited</h2>
+                                <h4 class="gry-sub-heading">Gujarat, Ahmedabad</h4>
+                            </div>
+                            <div class="ui-block-b">
+                                <div class="online-offline">
+                                    On web <img src="images/on-web-icon.png"/>
+                                </div>
+                            </div>
+                        </div></li>
+                    <li><div class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <h2 class="green-heading-1" >Harish Industries Limited</h2>
+                                <h4 class="gry-sub-heading">Gujarat, Ahmedabad</h4>
+                            </div>
+                            <div class="ui-block-b">
+                                <div class="online-offline">
+                                    On web <img src="images/on-web-icon.png"/>
+                                </div>
+                            </div>
+                        </div></li>
+                    <li><div class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <h2 class="green-heading-1" >Indian Industries Limited</h2>
+                                <h4 class="gry-sub-heading">Gujarat, Ahmedabad</h4>
+                            </div>
+                            <div class="ui-block-b">
+                                <div class="online-offline">
+                                    On web <img src="images/on-web-icon.png"/>
+                                </div>
+                            </div>
+                        </div></li>
+                    <li><div class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <h2 class="green-heading-1" >Jagtap Industries Limited</h2>
+                                <h4 class="gry-sub-heading">Gujarat, Ahmedabad</h4>
+                            </div>
+                            <div class="ui-block-b">
+                                <div class="online-offline">
+                                    On web <img src="images/on-web-icon.png"/>
+                                </div>
+                            </div>
+                        </div></li>
+                    <li><div class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <h2 class="green-heading-1" >Kamraj Industries Limited</h2>
+                                <h4 class="gry-sub-heading">Gujarat, Ahmedabad</h4>
+                            </div>
+                            <div class="ui-block-b">
+                                <div class="online-offline">
+                                    On web <img src="images/on-web-icon.png"/>
+                                </div>
+                            </div>
+                        </div></li>
+                    <li><div class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <h2 class="green-heading-1" >Oracal Industries Limited</h2>
+                                <h4 class="gry-sub-heading">Gujarat, Ahmedabad</h4>
+                            </div>
+                            <div class="ui-block-b">
+                                <div class="online-offline">
+                                    On web <img src="images/on-web-icon.png"/>
+                                </div>
+                            </div>
+                        </div></li>
+                    <li><div class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <h2 class="green-heading-1" >Ytd Industries Limited</h2>
+                                <h4 class="gry-sub-heading">Gujarat, Ahmedabad</h4>
+                            </div>
+                            <div class="ui-block-b">
+                                <div class="online-offline">
+                                    On web <img src="images/on-web-icon.png"/>
+                                </div>
+                            </div>
+                        </div></li>
+
+                </ul>
+            </div>
+
+        </div>   
+
+
+    </div>
+
+
+    <!-------------------CustomerFilter--------------------------->
+    <div data-role="page" class="outerdiv promo-2"  id="page-cutomer-filter" style="/*display: block; z-index:1000; */" >
+        <div data-role="header" class="header tp-header  ui-header ui-bar-inherit ui-header-fixed slidedown"  data-position="fixed" role="banner">
+            <div class="header-main">
+                <a href="#" class="filter-btn btn-left dash-back ui-link"> <img src="images/filter-icon.png"/> </a>
+                <h2 style="line-height:20px;">Filter</h2>
+                  
+                  <a href="#" class="btn-right"> <img src="images/next-p-btn.png"/> </a>
+                
+            </div>
+
+
+
+
+        </div>
+
+        <div data-role="main" class="ui-content">
+
+            <div class="cut-list-filter">
+                <div class="ui-field-contain">
+
+
+                    <select name="select-custom-18" id="select-custom-18" data-native-menu="false" >
+                        <option value="" data-placeholder="true">Zone</option>
+                        <option value="1">East </option>
+                        <option value="2">Wast</option>
+                        <option value="3" >North</option>
+                        <option value="4">South</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+            <div class="cut-list-filter">
+                <div class="ui-field-contain">
+
+
+                    <select name="select-custom-18" class="select-custom-18" id="select-custom-19" data-native-menu="false" >
+                        <option value="" data-placeholder="true">State</option>
+                        <option value="1">Gujrat </option>
+                        <option value="2">Mamarashtra</option>
+                        <option value="3" >Karnatak</option>
+                        <option value="4">Tamilnadu</option>
+                    </select>
+                </div>
+            </div>
+            <div class="cut-list-filter">
+                <div class="ui-field-contain">
+
+
+                    <select name="select-custom-18 class="select-custom-18" id="select-custom-20" data-native-menu="false">
+                            <option value="" data-placeholder="true">State</option>
+                        <option value="1">East </option>
+                        <option value="2">Wast</option>
+                        <option value="3" >North</option>
+                        <option value="4">South</option>
+                    </select>
+                </div>
+            </div>
+            <div class="cut-list-filter" style="margin:0 0 50px 0; ">
+                <div class="ui-field-contain">
+
+
+                    <select name="select-custom-18" class="select-custom-18" id="select-custom-21" data-native-menu="false" >
+                        <option value="" data-placeholder="true">Territory</option>
+                        <option value="1">East </option>
+                        <option value="2">Wast</option>
+                        <option value="3" >North</option>
+                        <option value="4">South</option>
+                    </select>
+                </div>
+            </div>
+
+
+        </div> 
+        <div class="filter-select-btn">
+            <div data-role="controlgroup" data-type="horizontal" data-mini="true" style="width:100%;">
+                <a href="#" class="ui-btn ui-corner-all ui-icon-check " style="border-right:1px solid #3dc36f !important;  ">
+                    <img src="images/select-icon.png"/> Select
+                </a>
+                <a href="#" class="ui-btn ui-corner-all ui-icon-delete closeSlide ">
+                    <img src="images/clear-icon.png"/> Clear
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+
+//            $(".filter-btn").click("slide", {direction: 'up', duration: '1000'}, function() {
+//                $(".promo").hide();
+//                $(".promo-2").show();
+//            });
+//            $("#dash-inner-content").click("slide", {direction: 'down', duration: '1000'}, function() {
+//                $(".promo").show();
+//                $(".promo-2").hide();
+//            });
+// $(".filter-btn").click(function(){
+//        $(".promo-2").toggle("slide", {direction: 'top', duration: '1000'}, function() {
+//            $(".promo").hide();
+//        });
+//        $.mobile.activePage.trigger("create");
+//})
+    </script>
+
+</body>
+
+</html>

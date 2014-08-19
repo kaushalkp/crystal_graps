@@ -1,0 +1,472 @@
+
+
+<div data-role="header" class="header tp-header  ui-header ui-bar-inherit ui-header-fixed slidedown"  data-position="fixed" role="banner">
+    <div class="header-main">
+        <a  class="btn-left dash-back" style="display:none;">
+            <img  class="back-img" src="images/Back_1.png"/>
+        </a>
+        <h2 id="dashboard-title">Dashboard</h2>
+        <h4 id="dashboard-subtitle">Figures in Lakhs</h4>
+        <a style="" href="#overlayPanel"  data-transition="slide" class="btn-right side-menu-btn"> <img src="images/next-p-btn.png"/> </a>
+    </div>
+    <div class="navigation">
+        <div class="navi-link">
+            <ul>
+                <li><a href="#tab1"> <img src="images/ui-img1.png"/> <p class="noti-count">5</p> </a> </li>
+                <li><a href="#tab2"> <img src="images/ui-img2.png"/> <p class="noti-count">4</p> </a></li>
+                <li><a href="#tab3"> <img style="width: 30px;height: 25px;" src="images/ui-img3.png"/> <p class="noti-count">10</p> </a></li>
+                <li><a href="#tab4"> <img src="images/ui-img4.png"/> <p class="noti-count">18</p> </a></li>
+                <li class="active"><a href="#tab5"> <img src="images/ui-img5.png"/>  </a></li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<div data-role="main" class="ui-content dashboard">
+    <div class="navigation">
+        <div class="navi-contain">
+            <div class="navi " id="tab1">
+                <h1>Heading_1</h1>
+                <p>This is may web page</p>
+            </div>
+            <div class="navi " id="tab2">
+                <h1>Heading_2</h1>
+                <p>This is may web page</p>
+            </div>
+            <div class="navi " id="tab3">
+                <h1>Heading_3</h1>
+                <p>This is may web page</p>
+            </div>
+            <div class="navi " id="tab4">
+                <h1>Heading_4</h1>
+                <p>This is may web page</p>
+            </div>
+
+            <div class="navi active" id="tab5">
+                <!--********************** dashboard content***********************-->
+                <div data-role="content" id="td-tabs" class="innerdiv">
+                    <div class="ytd-mtd">
+                        <div class="ui-grid-a" style="padding:4px;">
+                            <div class="ui-block-a">
+                                <div class=" da-btn ytd-btn ytd-block-btn da-active-btn">YTD</div>
+                            </div>
+                            <div class="ui-block-b">
+                                <div class="da-btn mtd-btn mtd-block-btn">MTD</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui-grid-a ytd-block">
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a ">
+                                <a href="#" id="sales-aopb-btn" class="dash-btn" title="Sales" subtitle="(AOPB)">
+                                    <div class="row bg-l-green">
+                                        <div class="ytd-sales-header bg-d-green">
+                                            <span > <img src="images/ytd-sales-icon.png" align="bottom"/>  <h4>SALES (AOPB)</h4> </span>
+                                        </div>
+                                        <div class="ui-grid-a">
+
+                                            <div class="ui-block-a">
+                                                <canvas id="sales-aopb-chart" height="50" width="50"  class="dash-pie-chart">
+                                                </canvas>
+                                            </div>
+                                            <div class="ui-block-b">
+                                                <span class="ytd-s-per">
+                                                    <h2><%= ytd.sales_aopb.p %> <p> %</p> </h2> 
+                                                </span>
+                                            </div>
+
+                                            <div class="ui-block-a ">
+                                                <p class="ytd-tar  bg-d-green" > Tar <%= ytd.sales_aopb.tar %></p>
+                                            </div>
+                                            <div class="ui-block-b">
+                                                <p class="ytd-tar bg-d-green">Act <%= ytd.sales_aopb.ach %></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="ui-block-b ">
+                                <a href="#" class="dash-btn" id="sales-forcast-btn" title="Sales" subtitle="(FORCAST)">
+                                    <div class="row bg-l-green">
+                                        <div class="ytd-sales-header bg-d-green">
+                                            <span > <img src="images/mtd-sales-icon.png"/>  <h4>SALES (Forcast)</h4></span>
+                                        </div>
+                                        <div class="ui-grid-a">
+                                            <div class="ui-block-a">
+                                                <canvas id="sales-forcast-chart" width="50" height="50" class="dash-pie-chart">
+                                                </canvas>
+                                            </div>
+                                            <div class="ui-block-b">
+                                                <span class="ytd-s-per">
+                                                    <h2><%= ytd.sales_forcast.p %> <p> %</p> </h2>
+                                                </span>
+                                            </div>
+
+                                            <div class="ui-block-a ">
+                                                <p class="mtd-tar bg-d-green">Tar <%= ytd.sales_forcast.tar %></p>
+                                            </div>
+                                            <div class="ui-block-b ">
+                                                <p class="mtd-tar bg-d-green">Act <%= ytd.sales_forcast.ach %></p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <!------------------------------>
+                            <div class="ui-block-a ">
+                                <a href="#" class="dash-btn" id="return-btn" title="Return" subtitle="">
+                                    <div class="row bg-l-perpal">
+                                        <div class="ytd-sales-header bg-d-perpal">
+                                            <span> <img src="images/ytd-sales-icon.png"/>  <h4>RETURN</h4> </span>
+                                        </div>
+                                        <div class="ui-grid-a">
+
+                                            <div class="ui-block-a">
+                                                <canvas id="return-pie-chart" height="50" width="50" class="dash-pie-chart">
+
+                                                </canvas>
+                                            </div>
+                                            <div class="ui-block-b">
+                                                <span class="ytd-s-per">
+                                                    <h2><%= ytd.returns.p %> <p> %</p> </h2> 
+                                                </span>
+                                            </div>
+
+                                            <div class="ui-block-a ">
+                                                <p class="ytd-tar  bg-sd-perpal"> Tar <%= ytd.returns.tar %> </p>
+                                            </div>
+                                            <div class="ui-block-b">
+                                                <p class="ytd-tar bg-sd-perpal">Act <%= ytd.returns.ach %> </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="ui-block-b ">
+                                <a href="#" class="dash-btn" id="collection-btn" title="Collection" subtitle="">
+                                    <div class="row bg-l-orange">
+                                        <div class="ytd-sales-header bg-d-orange">
+                                            <span> <img src="images/coins.png"/>  <h4>COLLECTION</h4> </span>
+                                        </div>
+                                        <div class="ui-grid-a">
+                                            <div class="ui-block-a">
+                                                <canvas id="collection-pie-chart" width="50" height="50" class="dash-pie-chart">
+                                                </canvas>
+                                            </div>
+                                            <div class="ui-block-b">
+                                                <span class="ytd-s-per">
+                                                    <h2><%= ytd.collection.p %>  <p> %</p> </h2>
+                                                </span>
+                                            </div>
+
+                                            <div class="ui-block-a ">
+                                                <p class="mtd-tar bg-sd-orange">Tar <%= ytd.returns.tar %> </p>
+                                            </div>
+                                            <div class="ui-block-b ">
+                                                <p class="mtd-tar bg-sd-orange">Act <%= ytd.returns.ach %> </p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <!------------------------------>
+                            <div class="ui-block-a ">
+                                <a href="#" class="dash-btn" id="customer-btn" title="Customer" subtitle="">
+                                    <div class="row bg-l-pink">
+                                        <div class="ytd-sales-header bg-d-pink">
+                                            <span><img src="images/custemar.png"/>  <h4>CUSTOMER</h4> </span>
+                                        </div>
+                                        <div class="ui-grid-a">
+
+                                            <div class="ui-block-a">
+                                                <canvas id="customer-pie-chart" width="50" height="50" class="dash-pie-chart">
+                                                </canvas>
+                                            </div>
+                                            <div class="ui-block-b">
+                                                <span class="ytd-s-per">
+                                                    <h2><%= ytd.customer.p %>  <p> %</p> </h2> 
+                                                </span>
+                                            </div>
+                                            <div class="ui-block-a ">
+                                                <p class="mtd-tar bg-d-pink">Tar <%= ytd.returns.tar %> </p>
+                                            </div>
+                                            <div class="ui-block-b ">
+                                                <p class="mtd-tar bg-d-pink">Act <%= ytd.returns.ach %> </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="ui-block-b ">
+                                <a href="#" class="dash-btn" id="due-btn" title="Dues">
+                                    <div class="row bg-l-blue">
+                                        <div class="ytd-sales-header bg-d-blue">
+                                            <span> <img src="images/watch.png"/>   <h4> DUE</h4> </span>
+                                        </div>
+                                        <div class="ui-grid-a">
+                                            <div class="ui-block-a">
+                                                <canvas id="due-pie-chart" width="50" height="50" class="dash-pie-chart">
+                                                </canvas>
+                                            </div>
+                                            <div class="ui-block-b">
+                                                <span class="ytd-s-per">
+                                                    <h2><%= ytd.due.p %>  <p> %</p> </h2>
+                                                </span>
+                                            </div>
+                                            <div class="ui-block-a ">
+                                                <p class="mtd-tar bg-d-blue">Tar <%= ytd.due.tar %> </p>
+                                            </div>
+                                            <div class="ui-block-b ">
+                                                <p class="mtd-tar bg-d-blue">Act <%= ytd.due.ach %> </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <!------------------------------>
+                        </div>
+                        <div class="ui-grid-b bg-green-footer">
+                            <div class="ui-block-a">
+                                <h1> DSO </h1>
+                            </div>
+                            <div class="ui-block-b">
+                                <h1> <%= ytd.dso.days %>  Days</h1>
+                            </div>
+                            <div class="ui-block-c">
+                                <h1>  <%= ytd.dso.p %>%</h1>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ui-grid-a mtd-block">
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a ">
+                                <div class="row bg-l-green">
+                                    <div class="ytd-sales-header bg-d-green">
+                                        <span > <img src="images/ytd-sales-icon.png" align="bottom"/>  <h4>SALES1</h4> </span>
+                                    </div>
+                                    <div class="ui-grid-a">
+
+                                        <div class="ui-block-a"></div>
+                                        <div class="ui-block-b">
+                                            <span class="ytd-s-per">
+                                                <h2>60 <p> %</p> </h2> 
+                                            </span>
+                                        </div>
+
+                                        <div class="ui-block-a ">
+                                            <p class="ytd-tar  bg-d-green" > Tar 800</p>
+                                        </div>
+                                        <div class="ui-block-b">
+                                            <p class="ytd-tar bg-d-green">Act 665</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui-block-b ">
+                                <div class="row bg-l-green">
+                                    <div class="ytd-sales-header bg-d-green">
+                                        <span > <img src="images/mtd-sales-icon.png"/>  <h4>SALES1</h4></span>
+                                    </div>
+                                    <div class="ui-grid-a">
+                                        <div class="ui-block-a"></div>
+                                        <div class="ui-block-b">
+                                            <span class="ytd-s-per">
+                                                <h2>60 <p> %</p> </h2>
+                                            </span>
+                                        </div>
+
+                                        <div class="ui-block-a ">
+                                            <p class="mtd-tar bg-d-green">Tar 800</p>
+                                        </div>
+                                        <div class="ui-block-b ">
+                                            <p class="mtd-tar bg-d-green">Act 665</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!------------------------------>
+                            <div class="ui-block-a ">
+                                <div class="row bg-l-perpal">
+                                    <div class="ytd-sales-header bg-d-perpal">
+                                        <span> <img src="images/ytd-sales-icon.png"/>  <h4>RETURN</h4> </span>
+                                    </div>
+                                    <div class="ui-grid-a">
+
+                                        <div class="ui-block-a"></div>
+                                        <div class="ui-block-b">
+                                            <span class="ytd-s-per">
+                                                <h2>60 <p> %</p> </h2> 
+                                            </span>
+                                        </div>
+
+                                        <div class="ui-block-a ">
+                                            <p class="ytd-tar  bg-sd-perpal"> Tar 800</p>
+                                        </div>
+                                        <div class="ui-block-b">
+                                            <p class="ytd-tar bg-sd-perpal">Act 665</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui-block-b ">
+                                <div class="row bg-l-orange">
+                                    <div class="ytd-sales-header bg-d-orange">
+                                        <span> <img src="images/coins.png"/>  <h4>COLLECTION</h4> </span>
+                                    </div>
+                                    <div class="ui-grid-a">
+                                        <div class="ui-block-a"></div>
+                                        <div class="ui-block-b">
+                                            <span class="ytd-s-per">
+                                                <h2>60 <p> %</p> </h2>
+                                            </span>
+                                        </div>
+
+                                        <div class="ui-block-a ">
+                                            <p class="mtd-tar bg-sd-orange">Tar 800</p>
+                                        </div>
+                                        <div class="ui-block-b ">
+                                            <p class="mtd-tar bg-sd-orange">Act 665</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!------------------------------>
+                            <div class="ui-block-a ">
+                                <div class="row bg-l-pink">
+                                    <div class="ytd-sales-header bg-d-pink">
+                                        <span><img src="images/custemar.png"/>  <h4>CUSTOMER</h4> </span>
+                                    </div>
+                                    <div class="ui-grid-a">
+
+                                        <div class="ui-block-a"></div>
+                                        <div class="ui-block-b">
+                                            <span class="ytd-s-per">
+                                                <h2>60 <p> %</p> </h2> 
+                                            </span>
+                                        </div>
+                                        <div class="ui-block-a ">
+                                            <p class="mtd-tar bg-d-pink">Tar 800</p>
+                                        </div>
+                                        <div class="ui-block-b ">
+                                            <p class="mtd-tar bg-d-pink">Act 665</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui-block-b ">
+                                <div class="row bg-l-blue">
+                                    <div class="ytd-sales-header bg-d-blue">
+                                        <span> <img src="images/watch.png"/>   <h4> DUE</h4> </span>
+                                    </div>
+                                    <div class="ui-grid-a">
+                                        <div class="ui-block-a"></div>
+                                        <div class="ui-block-b">
+                                            <span class="ytd-s-per">
+                                                <h2>60 <p> %</p> </h2>
+                                            </span>
+                                        </div>
+                                        <div class="ui-block-a ">
+                                            <p class="mtd-tar bg-d-blue">Tar 800</p>
+                                        </div>
+                                        <div class="ui-block-b ">
+                                            <p class="mtd-tar bg-d-blue">Act 665</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!------------------------------>
+                        </div>
+                        <div class="ui-grid-b bg-green-footer">
+                            <div class="ui-block-a">
+                                <h1> DSO </h1>
+                            </div>
+                            <div class="ui-block-b">
+                                <h1> 59 Days</h1>
+                            </div>
+                            <div class="ui-block-c">
+                                <h1>  12%</h1>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!--****************************************************************-->
+                <!--********************** dashboard Inner content***********************-->
+                <div id="dash-inner-content" class="innerdiv overlay" style="display:none">
+
+                </div>
+                <!--****************************************************************-->
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+
+
+    $(document).ready(function() {
+
+//    $(".side-menu-btn").click(function(){
+//        $.get('tpl/SideMenuView.html',function(res){
+//            $(".side-panel-menu").html(res);
+//              $.mobile.activePage.trigger("create");
+//        })
+//    })
+//        $(".dash-back").click(function() {
+//            $("#td-tabs").show();
+//            $("#dash-inner-content").hide();
+//        })
+        $('.navigation .navi-link li').on('click', function(e) {
+             $(".dash-back").hide();
+            var currentAttrValue = $(this).find("a").attr('href');
+            // alert(currentAttrValue);
+            if (currentAttrValue == "#tab5") {
+                $("#td-tabs").show();
+                $("#dash-inner-content").hide();
+                $(".ytd-mtd").css("display", "block");
+            } else {
+                $(".ytd-mtd").css("display", "none");
+            }
+            // Show/Hide Tabs
+            $('.navigation ' + currentAttrValue).show().siblings().hide();
+
+            // Change/remove current tab to active
+            $(this).addClass('active').siblings().removeClass('active');
+
+            e.preventDefault();
+            
+          
+        });
+
+    });
+
+    createBarChart("sales-aopb-chart", <%= ytd.sales_aopb.tar %>, <%= ytd.sales_aopb.ach %>, "#3fcfb9");
+    createBarChart("sales-forcast-chart", <%= ytd.sales_forcast.tar %>, <%= ytd.sales_forcast.ach %>, "#3fcfb9");
+    createBarChart("return-pie-chart", <%= ytd.returns.tar %>, <%= ytd.returns.ach %>, "#7d94c7");
+    createBarChart("collection-pie-chart", <%= ytd.collection.tar %>, <%= ytd.collection.ach %>, "#dd8158");
+    createBarChart("customer-pie-chart", <%= ytd.customer.tar %>, <%= ytd.customer.ach %>, "#e07b89");
+    createBarChart("due-pie-chart", <%= ytd.due.tar %>, <%= ytd.due.ach %>, "#5094b3");
+
+    function createBarChart(id, tar, act, backColor) {
+        var ctx2 = document.getElementById(id).getContext("2d");
+        var graph2 = new BarGraph(ctx2);
+        graph2.margin = 2;
+        graph2.width = 50;
+        graph2.height = 60;
+        graph2.backgroundColor = backColor;
+        graph2.xAxisLabelArr = ["TAR", "ACT"],
+                graph2.barBgColor = ["#1b76d4", "#e3fb60"],
+                graph2.barLabelColor = ["#fff", "#fff"],
+                graph2.barLabelFont = "bold 10px sans-serif",
+                graph2.update([tar, act]);
+    }
+
+
+</script>
+

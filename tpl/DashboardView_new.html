@@ -1,0 +1,96 @@
+
+
+<div data-role="header" class="header tp-header  ui-header ui-bar-inherit ui-header-fixed slidedown"  data-position="fixed" role="banner">
+    <div class="header-main">
+        <a  class="btn-left dash-back" style="display:none;">
+            <img  class="back-img" src="images/Back_1.png"/>
+        </a>
+        <h2 id="dashboard-title">Dashboard</h2>
+        <h4 id="dashboard-subtitle">Figures in Lakhs</h4>
+        <a  href="#overlayPanel"  data-transition="slide" class="btn-right side-menu-btn"> <img src="images/next-p-btn.png"/> </a>
+    </div>
+    <div class="navigation">
+        <div class="navi-link">
+            <ul>
+                <li><a href="#tab1"> <img src="images/ui-img1.png"/> <p class="noti-count">5</p> </a> </li>
+                <li><a href="#tab2"> <img src="images/ui-img2.png"/> <p class="noti-count">4</p> </a></li>
+                <li><a href="#tab3"> <img style="width: 30px;height: 25px;" src="images/ui-img3.png"/> <p class="noti-count">10</p> </a></li>
+                <li><a href="#tab4"> <img src="images/ui-img4.png"/> <p class="noti-count">18</p> </a></li>
+                <li class="active"><a href="#tab5"> <img src="images/ui-img5.png"/>  </a></li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<div data-role="main" class="ui-content dashboard">
+    <div class="navigation">
+        <div class="navi-contain">
+            <div class="navi " id="tab1">
+                <h1>Heading_1</h1>
+                <p>This is may web page</p>
+            </div>
+            <div class="navi " id="tab2">
+                <h1>Heading_2</h1>
+                <p>This is may web page</p>
+            </div>
+            <div class="navi " id="tab3">
+                <h1>Heading_3</h1>
+                <p>This is may web page</p>
+            </div>
+            <div class="navi " id="tab4">
+                <h1>Heading_4</h1>
+                <p>This is may web page</p>
+            </div>
+
+            <div class="navi active" id="tab5">
+                <!--********************** dashboard content***********************-->
+                
+                <!--****************************************************************-->
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+
+
+    $(document).ready(function() {
+
+//    $(".side-menu-btn").click(function(){
+//        $.get('tpl/SideMenuView.html',function(res){
+//            $(".side-panel-menu").html(res);
+//              $.mobile.activePage.trigger("create");
+//        })
+//    })
+//        $(".dash-back").click(function() {
+//            $("#td-tabs").show();
+//            $("#dash-inner-content").hide();
+//        })
+        $('.navigation .navi-link li').on('click', function(e) {
+             $(".dash-back").hide();
+            var currentAttrValue = $(this).find("a").attr('href');
+            // alert(currentAttrValue);
+            if (currentAttrValue == "#tab5") {
+                $("#td-tabs").show();
+                $("#dash-inner-content").hide();
+                $(".ytd-mtd").css("display", "block");
+            } else {
+                $(".ytd-mtd").css("display", "none");
+            }
+            // Show/Hide Tabs
+            $('.navigation ' + currentAttrValue).show().siblings().hide();
+
+            // Change/remove current tab to active
+            $(this).addClass('active').siblings().removeClass('active');
+
+            e.preventDefault();
+            
+          
+        });
+
+    });
+
+   
+</script>
+

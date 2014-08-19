@@ -1,0 +1,125 @@
+<div data-role="main" class="ui-content dash-inner">
+    <div class="ytd-mtd">
+        <div class="ui-grid-a" style="padding:4px;">
+            <div class="ui-block-a">
+                <div class="da-btn ytd-btn ytd-block-btn da-active-btn">YTD</div>
+            </div>
+            <div class="ui-block-b">
+                <div class="da-btn mtd-btn mtd-block-btn">MTD</div>
+            </div>
+        </div>
+    </div>
+    <div class="navigation" style="margin-top: 52px">
+        <div class="navi-contain">
+            <div class="navi active" id="tab5">
+                <div data-role="content" id="td-tabs" class="innerdiv">
+                    <div class="ui-grid-solo bg-weight">
+                        <p class="inner-title">AOPB - Total 2670</p>
+                    </div>
+                    <%
+                    $.each(detail,function(key,obj){
+                    switch(obj.length){
+                    case 1:
+                    %>
+                    
+                     <div class="ui-grid-solo <%=bg%>" style="margin-top:5px;">
+                        <div class="sales-per sales-bottom">
+                            <h3><%= obj[0].title %></h3>
+                            <h1><%= obj[0].val %></h1>
+                            <div class="sal-per-val <%=bgd %>">
+                                <h2><%= obj[0].p %></h2> <h4>%</h4>
+                            </div>
+                        </div>
+                    </div>
+                   <% break;
+                    case 2:
+                    %>
+                    
+                     <div class="ui-grid-a" >
+                        <div class="ui-block-a ">
+                            <div class="row <%=bg %> mar-0 retail-a" style="border-right: 5px solid white;">
+                                <div class="sales-inner-foucs " >
+                                    <h3><%= obj[0].title %></h3>
+                                    <div class="sales-per">
+                                        <h1><%= obj[0].val %></h1>
+                                        <div class="sal-per-val <%=bgd %>">
+                                            <h2><%= obj[0].p %></h2> <h4>%</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui-block-b">
+                            <div class="row <%=bg%> mar-0 retail-b">
+                                <div class="sales-inner-foucs ">
+                                    <h3><%= obj[1].title %></h3>
+                                    <div class="sales-per">
+                                        <h1><%= obj[1].val %></h1>
+                                        <div class="sal-per-val <%=bgd%>">
+                                            <h2><%= obj[1].p %></h2> <h4>%</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <% break;
+                    case 3:
+                    %>
+                    <div class="ui-grid-a <%=bg %>" >
+                        <div class="ui-block-a">
+                            <div class="sales-inner" style="margin: 9px 2px 9px 0px;">
+                                <div>
+                                    <h3><%= obj[0].title %></h3>
+                                    <div class="sales-per">
+                                        <h1><%= obj[0].val %></h1>
+                                        <div  class="sal-per-val <%=bgd %>">
+                                            <h2><%= obj[0].p %></h2> <h4>%</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="ui-block-b">
+                            <div class="ui-grid-solo">
+                                <div class="sales-inner-foucs">
+                                    <h3><%= obj[1].title %></h3>
+                                    <div class="sales-per">
+                                        <h1><%= obj[1].val %></h1>
+                                        <div class="sal-per-val <%=bgd %>">
+                                            <h2><%= obj[1].p %></h2> <h4>%</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui-grid-solo">
+                                <div class="sales-inner-foucs border-bottom">
+                                    <h3><%= obj[2].title %></h3>
+                                    <div class="sales-per">
+                                        <h1><%= obj[2].val %></h1>
+                                        <div class="sal-per-val <%=bgd %>">
+                                            <h2><%= obj[2].p %></h2> <h4>%</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <%
+                    break;
+                     
+                   }
+                   });
+                    %>
+                   
+                   
+                   
+                </div>
+            </div>
+        </div>
+    </div>   
+</div>

@@ -1,0 +1,608 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+               
+        <script>
+            $(document).ready(function() {
+                $('.navigation .navi-link a').on('click', function(e) {
+                    var currentAttrValue = $(this).attr('href');
+
+                    // Show/Hide Tabs
+                    $('.navigation ' + currentAttrValue).show().siblings().hide();
+
+                    // Change/remove current tab to active
+                    $(this).parent('li').addClass('active').siblings().removeClass('active');
+
+                    e.preventDefault();
+                });
+            });
+        </script>
+
+        <style>
+            @font-face {
+                font-family: Roboto-Light;
+                src: url(css/font/Roboto-Light.ttf);
+            }
+            @font-face {
+                font-family: Roboto-Regular;
+                src: url(css/font/Roboto-Regular.ttf);
+            }
+            @font-face {
+                font-family:Roboto-Medium;
+                src:url(css/font/Roboto-Medium.ttf);
+            }
+           
+           
+            body {
+                color:#FFF;
+                font-family:Roboto-Light; 
+            }
+
+            p,h1,h2,h3,h4,h5{
+                text-shadow: none !important;
+            }
+            
+            .ui-header-fixed {
+                padding: 0px;
+            }
+            schemeperformance-content.ui-footer{
+                padding: 0;
+            }
+            .header-main h2 {
+                font-size:30px;
+                font-family:Roboto-Light; 
+            }
+            .header-main h4 {
+                font-size:14px;
+            }
+
+            .header-main h2,h4 {
+                color:#FFF;
+                font-weight:100;
+                line-height:1px; 
+            }
+            .header-main {
+                width:100%;
+                height:auto;
+                overflow:auto; 
+                background:#1A9146; 
+                text-align:center;
+                padding:0px 0 0px 0; 
+            }
+          
+           .schemeperformance-content.bg-green-footer {
+                background:#1a9146;
+                color:#fff;
+                font-family:Roboto-Light; 
+
+            }
+            .schemeperformance-content.ui-content{
+                padding: 0px !important;
+            }
+           
+            .schemeperformance-content.ui-header{
+                border:none;
+            }
+            
+            /*--------------------------Customer_Promile--------------------------------*/
+            
+           .schemeperformance-content #tabs {
+                padding:0px; 
+            }
+            .schemeperformance-content.tabs-green-theme li.ui-state-default a  {
+                 background-color: white !important;
+                 
+            }
+             .schemeperformance-content.tabs-green-theme li.ui-state-active a{
+                border-bottom: 2px solid green !important;
+                background-color: white !important;
+                color: green !important;
+                border-color:none !important;
+               
+                text-shadow: none !important;
+                margin: 0px 0px 0px 0px !important;
+            }
+            
+           
+            /*-----------------------------------------------------------*/
+           
+            /* Small devices (tablets, 768px and up) */
+            @media (min-width: 200px) {
+               
+                .header-main h2 {
+                    font-size:18px;        
+                }
+                .header-main h4 {
+                    font-size:10px;        
+                }
+                .header-main img {
+                    width:6px; 
+                }
+
+            @media (min-width: 300px) {
+                .header-main h2 {
+                    font-size:18px;
+
+                }
+                .header-main img {
+                    width:6px;
+
+                }
+/*--------------------------------------------------------------------------*/
+                
+              
+            /* Small devices (tablets, 768px and up) */
+            @media (min-width: 560px) {
+
+                .ytd-sales-header img{
+                    width: 20px;
+                }
+/*---------------------------------------------------------------------------------------*/
+              
+           .schemeperformance-content.ui-content tabs-green-theme li a{
+           font-family: roboto-light;
+           }
+/****************************************************/
+.schemeperformance-content.ul_class li a{
+font-family: roboto-light;
+}
+.filter .ui-select span{
+text-align: left;
+font-family: roboto-light;
+
+}
+.filter form .ui-select{
+margin-top: 0px;
+margin-bottom: 0px;
+}
+.filter input, select, textarea, button, .ui-btn{
+font-family: roboto-light;
+}
+.ui-page-theme-a .ui-btn.ui-btn-active, html .ui-bar-a .ui-btn.ui-btn-active, html .ui-body-a .ui-btn.ui-btn-active, html body .ui-group-theme-a .ui-btn.ui-btn-active, html head + body .ui-btn.ui-btn-a.ui-btn-active, .ui-page-theme-a .ui-checkbox-on:after, html .ui-bar-a .ui-checkbox-on:after, html .ui-body-a .ui-checkbox-on:after, html body .ui-group-theme-a .ui-checkbox-on:after, .ui-btn.ui-checkbox-on.ui-btn-a:after, .ui-page-theme-a .ui-flipswitch-active, html .ui-bar-a .ui-flipswitch-active, html .ui-body-a .ui-flipswitch-active, html body .ui-group-theme-a .ui-flipswitch-active, html body .ui-flipswitch.ui-bar-a.ui-flipswitch-active, .ui-page-theme-a .ui-slider-track .ui-btn-active, html .ui-bar-a .ui-slider-track .ui-btn-active, html .ui-body-a .ui-slider-track .ui-btn-active, html body .ui-group-theme-a .ui-slider-track .ui-btn-active, html body div.ui-slider-track.ui-body-a .ui-btn-active {
+background-color: #1A9146;
+text-shadow: 0 1px 0 #008000;
+}
+.filter .ui-btn-corner-all, .ui-btn.ui-corner-all, .ui-slider-track.ui-corner-all, .ui-flipswitch.ui-corner-all, .ui-li-count{
+border-radius:initial;
+}
+.filter .ui-btn-icon-left:after, .ui-btn-icon-right:after, .ui-btn-icon-top:after, .ui-btn-icon-bottom:after, .ui-btn-icon-notext:after {
+    background-color:transparent;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.filter .ui-icon-carat-d:after {
+    background-image: url("images/icon_arrow.png");
+}
+.schemeperformance-content .ui-popup-container {
+    top:0px;
+    width:100%;
+    left:0px;
+}
+.select-inner{
+border-right:1px solid #fff;
+height: 25px;
+margin: 5px;
+}
+
+
+/***************************************************/
+            /* Small devices (tablets, 768px and up) */
+            @media (min-width: 768px) {
+
+            }
+            /* Medium devices (desktops, 992px and up) */
+            @media (min-width: 992px) {
+
+            }
+           
+
+
+        </style>
+
+    
+
+</head>
+<body>
+    <div data-role="page" class="outerdiv"  id="schemeperformance-page">
+        <div data-role="header" class="header tp-header  ui-header ui-bar-inherit ui-header-fixed slidedown"  data-position="fixed" role="banner">
+            <div class="header-main">
+               
+                <h2 style="line-height:20px;font-weight: bolder;">Scheme Performance</h2>
+                <div class="btn-right ">
+                 <div class="ui-block-a" > <a href= "#filter" data-transition="slideup" data-rel="popup" data-position-to="window" class=""> <img src="images/filter.png" style="width:16px;"/> </a></div>
+                     <div class="ui-block-b" ><a  href="#"><img src="images/next-p-btn.png"/> </a> </div>
+               </div>
+            </div>
+            
+
+        </div>
+       <div class="schemeperformance-content" id="schemeperformance-content">
+        <div data-role="main" class="ui-content">
+            
+            <div data-role="tabs" id="tabs">
+                <div data-role="navbar">
+                    <ul class="tabs-green-theme">
+                        <li><a href="#product" data-ajax="false">Product</a></li>
+                        <li><a href="#scheme" data-ajax="false">S cheme</a></li>
+                        
+                    </ul>
+                </div>
+                <div id="product" class="ui-body-d ui-content">
+                
+                </div>
+                <div id="scheme">
+                
+                    
+                </div>
+                
+                <div data-role="popup" id="filter" class="ui-content" data-theme="a" >
+                   
+<div data-role="header" class="header tp-header  ui-header ui-bar-inherit  slidedown" role="banner">
+<div class="header-main">
+<h2 style="line-height: 20px;text-align: left;font-weight:bolder;"><img src="images/filter.png" style="width:16px;"/>Filters</h2>
+</div>
+
+
+</div>
+<div  class="ui-content">
+<div class="ui-body-d ui-content filter">
+<form>
+
+     <select id="zone"  data-native-menu="false" >
+        <option>Zone</option>
+        <option value="east">East</option>
+        <option value="west">West</option>
+        <option value="south">South</option>
+        <option value="north">North</option>
+    </select>
+    <select id="state"  data-native-menu="false">
+        <option>State</option>
+        <option value="gujarat">Gujarat</option>
+        <option value="punjab">Punjab</option>
+        <option value="karnataka">Karnataka</option>
+        <option value="madhyapradesh">Madhya Pradesh</option>
+        <option value="rajsthan">Rajsthan</option>
+        <option value="goa">Goa</option>
+        <option value="uttarpradesh">Uttar Pradesh</option>
+        <option value="bihar">Bihar</option>
+    </select>
+    <select id="region"  data-native-menu="false">
+        <option>Region</option>
+        <option value="east">East</option>
+        <option value="west">West</option>
+        <option value="south">South</option>
+        <option value="north">North</option>
+    </select>
+    <select id="territory" data-native-menu="false">
+        <option>Territory</option>
+        <option value="east">East</option>
+        <option value="west">West</option>
+        <option value="south">South</option>
+        <option value="north">North</option>
+    </select>
+    <select id="period"  data-native-menu="false">
+        <option>Period</option>
+        <option value="east">East</option>
+        <option value="west">West</option>
+        <option value="south">South</option>
+        <option value="north">North</option>
+    </select>
+    
+</form>
+</div>
+<div data-role="footer">
+            <div class="ui-grid-a bg-green-footer">
+                <div class="ui-block-a">
+                <div class="select-inner">
+                    <h1 style="font-size: 15px;"> <img src="images/selectIcon.png" style="width:20px;height: 14px;"/>Select </h1>
+                </div>
+                </div>
+                <div class="ui-block-b">
+                    <h1 style="font-size: 15px;"> <img src="images/clearIcon.png" style="width:14px;height:13px;"/> Clear</h1>
+                </div>
+            </div>
+        </div>
+</div>
+
+                </div> 
+            </div>
+
+        </div>   
+    </div>
+    </div>
+</body>
+<script>
+$.mobile.document
+// The custom selectmenu plugin generates an ID for the listview by suffixing the ID of the
+// native widget with "-menu". Upon creation of the listview widget we want to place an
+// input field before the list to be used for a filter.
+.on( "listviewcreate", "#filter-menu-menu,#zone-menu", function( event ) {
+    var input,
+        list = $( event.target ),
+        form = list.jqmData( "filter-form" );
+    // We store the generated form in a variable attached to the popup so we avoid creating a
+    // second form/input field when the listview is destroyed/rebuilt during a refresh.
+    if ( !form ) {
+        input = $( "<input data-type='search'></input>" );
+        form = $( "<form></form>" ).append( input );
+        input.textinput();
+        list
+            .before( form )
+            .jqmData( "filter-form", form ) ;
+        form.jqmData( "listview", list );
+    }
+    // Instantiate a filterable widget on the newly created listview and indicate that the
+    // generated input form element is to be used for the filtering.
+    list.filterable({
+        input: input,
+        children: "> li:not(:jqmData(placeholder='true'))"
+    });
+})
+// The custom select list may show up as either a popup or a dialog, depending on how much
+// vertical room there is on the screen. If it shows up as a dialog, then the form containing
+// the filter input field must be transferred to the dialog so that the user can continue to
+// use it for filtering list items.
+.on( "pagecontainerbeforeshow", function( event, data ) {
+    var listview, form,
+        id = data.toPage && data.toPage.attr( "id" );
+    if ( !( id === "filter-menu-dialog" || id === "zone-dialog" ) ) {
+        return;
+    }
+    listview = data.toPage.find( "ul" );
+    form = listview.jqmData( "filter-form" );
+    // Attach a reference to the listview as a data item to the dialog, because during the
+    // pagecontainerhide handler below the selectmenu widget will already have returned the
+    // listview to the popup, so we won't be able to find it inside the dialog with a selector.
+    data.toPage.jqmData( "listview", listview );
+    // Place the form before the listview in the dialog.
+    listview.before( form );
+})
+// After the dialog is closed, the form containing the filter input is returned to the popup.
+.on( "pagecontainerhide", function( event, data ) {
+    var listview, form,
+        id = data.toPage && data.toPage.attr( "id" );
+    if ( !( id === "filter-menu-dialog" || id === "zone-dialog" ) ) {
+        return;
+    }
+    listview = data.toPage.jqmData( "listview" ),
+    form = listview.jqmData( "filter-form" );
+    // Put the form back in the popup. It goes ahead of the listview.
+    listview.before( form );
+});
+
+
+$.mobile.document
+//The custom selectmenu plugin generates an ID for the listview by suffixing the ID of the
+//native widget with "-menu". Upon creation of the listview widget we want to place an
+//input field before the list to be used for a filter.
+.on( "listviewcreate", "#filter-menu-menu,#state-menu", function( event ) {
+ var input,
+     list = $( event.target ),
+     form = list.jqmData( "filter-form" );
+ // We store the generated form in a variable attached to the popup so we avoid creating a
+ // second form/input field when the listview is destroyed/rebuilt during a refresh.
+ if ( !form ) {
+     input = $( "<input data-type='search'></input>" );
+     form = $( "<form></form>" ).append( input );
+     input.textinput();
+     list
+         .before( form )
+         .jqmData( "filter-form", form ) ;
+     form.jqmData( "listview", list );
+ }
+ // Instantiate a filterable widget on the newly created listview and indicate that the
+ // generated input form element is to be used for the filtering.
+ list.filterable({
+     input: input,
+     children: "> li:not(:jqmData(placeholder='true'))"
+ });
+})
+//The custom select list may show up as either a popup or a dialog, depending on how much
+//vertical room there is on the screen. If it shows up as a dialog, then the form containing
+//the filter input field must be transferred to the dialog so that the user can continue to
+//use it for filtering list items.
+.on( "pagecontainerbeforeshow", function( event, data ) {
+ var listview, form,
+     id = data.toPage && data.toPage.attr( "id" );
+ if ( !( id === "filter-menu-dialog" || id === "state-dialog" ) ) {
+     return;
+ }
+ listview = data.toPage.find( "ul" );
+ form = listview.jqmData( "filter-form" );
+ // Attach a reference to the listview as a data item to the dialog, because during the
+ // pagecontainerhide handler below the selectmenu widget will already have returned the
+ // listview to the popup, so we won't be able to find it inside the dialog with a selector.
+ data.toPage.jqmData( "listview", listview );
+ // Place the form before the listview in the dialog.
+ listview.before( form );
+})
+//After the dialog is closed, the form containing the filter input is returned to the popup.
+.on( "pagecontainerhide", function( event, data ) {
+ var listview, form,
+     id = data.toPage && data.toPage.attr( "id" );
+ if ( !( id === "filter-menu-dialog" || id === "state-dialog" ) ) {
+     return;
+ }
+ listview = data.toPage.jqmData( "listview" ),
+ form = listview.jqmData( "filter-form" );
+ // Put the form back in the popup. It goes ahead of the listview.
+ listview.before( form );
+});
+
+$.mobile.document
+//The custom selectmenu plugin generates an ID for the listview by suffixing the ID of the
+//native widget with "-menu". Upon creation of the listview widget we want to place an
+//input field before the list to be used for a filter.
+.on( "listviewcreate", "#filter-menu-menu,#region-menu", function( event ) {
+ var input,
+     list = $( event.target ),
+     form = list.jqmData( "filter-form" );
+ // We store the generated form in a variable attached to the popup so we avoid creating a
+ // second form/input field when the listview is destroyed/rebuilt during a refresh.
+ if ( !form ) {
+     input = $( "<input data-type='search'></input>" );
+     form = $( "<form></form>" ).append( input );
+     input.textinput();
+     list
+         .before( form )
+         .jqmData( "filter-form", form ) ;
+     form.jqmData( "listview", list );
+ }
+ // Instantiate a filterable widget on the newly created listview and indicate that the
+ // generated input form element is to be used for the filtering.
+ list.filterable({
+     input: input,
+     children: "> li:not(:jqmData(placeholder='true'))"
+ });
+})
+//The custom select list may show up as either a popup or a dialog, depending on how much
+//vertical room there is on the screen. If it shows up as a dialog, then the form containing
+//the filter input field must be transferred to the dialog so that the user can continue to
+//use it for filtering list items.
+.on( "pagecontainerbeforeshow", function( event, data ) {
+ var listview, form,
+     id = data.toPage && data.toPage.attr( "id" );
+ if ( !( id === "filter-menu-dialog" || id === "region-dialog" ) ) {
+     return;
+ }
+ listview = data.toPage.find( "ul" );
+ form = listview.jqmData( "filter-form" );
+ // Attach a reference to the listview as a data item to the dialog, because during the
+ // pagecontainerhide handler below the selectmenu widget will already have returned the
+ // listview to the popup, so we won't be able to find it inside the dialog with a selector.
+ data.toPage.jqmData( "listview", listview );
+ // Place the form before the listview in the dialog.
+ listview.before( form );
+})
+//After the dialog is closed, the form containing the filter input is returned to the popup.
+.on( "pagecontainerhide", function( event, data ) {
+ var listview, form,
+     id = data.toPage && data.toPage.attr( "id" );
+ if ( !( id === "filter-menu-dialog" || id === "region-dialog" ) ) {
+     return;
+ }
+ listview = data.toPage.jqmData( "listview" ),
+ form = listview.jqmData( "filter-form" );
+ // Put the form back in the popup. It goes ahead of the listview.
+ listview.before( form );
+});
+
+
+$.mobile.document
+//The custom selectmenu plugin generates an ID for the listview by suffixing the ID of the
+//native widget with "-menu". Upon creation of the listview widget we want to place an
+//input field before the list to be used for a filter.
+.on( "listviewcreate", "#filter-menu-menu,#territory-menu", function( event ) {
+ var input,
+     list = $( event.target ),
+     form = list.jqmData( "filter-form" );
+ // We store the generated form in a variable attached to the popup so we avoid creating a
+ // second form/input field when the listview is destroyed/rebuilt during a refresh.
+ if ( !form ) {
+     input = $( "<input data-type='search'></input>" );
+     form = $( "<form></form>" ).append( input );
+     input.textinput();
+     list
+         .before( form )
+         .jqmData( "filter-form", form ) ;
+     form.jqmData( "listview", list );
+ }
+ // Instantiate a filterable widget on the newly created listview and indicate that the
+ // generated input form element is to be used for the filtering.
+ list.filterable({
+     input: input,
+     children: "> li:not(:jqmData(placeholder='true'))"
+ });
+})
+//The custom select list may show up as either a popup or a dialog, depending on how much
+//vertical room there is on the screen. If it shows up as a dialog, then the form containing
+//the filter input field must be transferred to the dialog so that the user can continue to
+//use it for filtering list items.
+.on( "pagecontainerbeforeshow", function( event, data ) {
+ var listview, form,
+     id = data.toPage && data.toPage.attr( "id" );
+ if ( !( id === "filter-menu-dialog" || id === "territory-dialog" ) ) {
+     return;
+ }
+ listview = data.toPage.find( "ul" );
+ form = listview.jqmData( "filter-form" );
+ // Attach a reference to the listview as a data item to the dialog, because during the
+ // pagecontainerhide handler below the selectmenu widget will already have returned the
+ // listview to the popup, so we won't be able to find it inside the dialog with a selector.
+ data.toPage.jqmData( "listview", listview );
+ // Place the form before the listview in the dialog.
+ listview.before( form );
+})
+//After the dialog is closed, the form containing the filter input is returned to the popup.
+.on( "pagecontainerhide", function( event, data ) {
+ var listview, form,
+     id = data.toPage && data.toPage.attr( "id" );
+ if ( !( id === "filter-menu-dialog" || id === "territory-dialog" ) ) {
+     return;
+ }
+ listview = data.toPage.jqmData( "listview" ),
+ form = listview.jqmData( "filter-form" );
+ // Put the form back in the popup. It goes ahead of the listview.
+ listview.before( form );
+});
+
+
+$.mobile.document
+//The custom selectmenu plugin generates an ID for the listview by suffixing the ID of the
+//native widget with "-menu". Upon creation of the listview widget we want to place an
+//input field before the list to be used for a filter.
+.on( "listviewcreate", "#filter-menu-menu,#period-menu", function( event ) {
+ var input,
+     list = $( event.target ),
+     form = list.jqmData( "filter-form" );
+ // We store the generated form in a variable attached to the popup so we avoid creating a
+ // second form/input field when the listview is destroyed/rebuilt during a refresh.
+ if ( !form ) {
+     input = $( "<input data-type='search'></input>" );
+     form = $( "<form></form>" ).append( input );
+     input.textinput();
+     list
+         .before( form )
+         .jqmData( "filter-form", form ) ;
+     form.jqmData( "listview", list );
+ }
+ // Instantiate a filterable widget on the newly created listview and indicate that the
+ // generated input form element is to be used for the filtering.
+ list.filterable({
+     input: input,
+     children: "> li:not(:jqmData(placeholder='true'))"
+ });
+})
+//The custom select list may show up as either a popup or a dialog, depending on how much
+//vertical room there is on the screen. If it shows up as a dialog, then the form containing
+//the filter input field must be transferred to the dialog so that the user can continue to
+//use it for filtering list items.
+.on( "pagecontainerbeforeshow", function( event, data ) {
+ var listview, form,
+     id = data.toPage && data.toPage.attr( "id" );
+ if ( !( id === "filter-menu-dialog" || id === "period-dialog" ) ) {
+     return;
+ }
+ listview = data.toPage.find( "ul" );
+ form = listview.jqmData( "filter-form" );
+ // Attach a reference to the listview as a data item to the dialog, because during the
+ // pagecontainerhide handler below the selectmenu widget will already have returned the
+ // listview to the popup, so we won't be able to find it inside the dialog with a selector.
+ data.toPage.jqmData( "listview", listview );
+ // Place the form before the listview in the dialog.
+ listview.before( form );
+})
+//After the dialog is closed, the form containing the filter input is returned to the popup.
+.on( "pagecontainerhide", function( event, data ) {
+ var listview, form,
+     id = data.toPage && data.toPage.attr( "id" );
+ if ( !( id === "filter-menu-dialog" || id === "period-dialog" ) ) {
+     return;
+ }
+ listview = data.toPage.jqmData( "listview" ),
+ form = listview.jqmData( "filter-form" );
+ // Put the form back in the popup. It goes ahead of the listview.
+ listview.before( form );
+});
+</script>
+</html>
