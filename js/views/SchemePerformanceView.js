@@ -1,6 +1,7 @@
 window.SchemePerformanceView = Backbone.View.extend({
     initialize: function() {
         this.render();
+        console.log('view called');
     },
     reset: function() {
 
@@ -14,14 +15,9 @@ window.SchemePerformanceView = Backbone.View.extend({
         return this;
     },
     events: {
-         "click #btn_login": "openProductChart"
-       
+         
     },
-    
-    openProductChart:function ()
-    {
-        
-    }
+      
     
 });
 

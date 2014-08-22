@@ -1,4 +1,4 @@
-window.SchemePerformanceView = Backbone.View.extend({
+window.SalesPerformanceView = Backbone.View.extend({
     initialize: function() {
         this.render();
     },

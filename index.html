@@ -5,7 +5,95 @@
         <title>Insert title here</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/jquery.mobile-1.4.2.css">
+        <link rel="stylesheet" href="css/jqm-datebox.css">
         <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css"></link>
+<!--        <style>
+                      /* Button up */
+            
+.ui-page-theme-a .ui-btn,
+html .ui-bar-a .ui-btn,
+html .ui-body-a .ui-btn,
+html body .ui-group-theme-a .ui-btn,
+html head + body .ui-btn.ui-btn-a
+{
+	background-color:#1a9146; /* {a-bup-background-color};*/
+	border-color:#ddd /*{a-bup-border}*/;
+	color:#1a9146 ; /* {a-bup-color}*/
+        text-shadow: none;
+	/*text-shadow:  {a-bup-shadow-x} 1px {a-bup-shadow-y} 0 {a-bup-shadow-radius} #f3f3f3 {a-bup-shadow-color};*/
+}
+/* Button visited */
+.ui-page-theme-a .ui-btn:visited,
+html .ui-bar-a .ui-btn:visited,
+html .ui-body-a .ui-btn:visited,
+html body .ui-group-theme-a .ui-btn:visited,
+html head + body .ui-btn.ui-btn-a:visited {
+	background-color:#1a9146 /*{a-bup-background-color}*/;
+	border-color:#ddd /*{a-bup-border}*/;
+	color:#FFF /*{a-bup-color}*/;
+        text-shadow: none;
+	/*text-shadow:  {a-bup-shadow-x} 1px {a-bup-shadow-y} 0 {a-bup-shadow-radius} #f3f3f3 {a-bup-shadow-color};*/
+}
+/* Button hover */
+.ui-page-theme-a .ui-btn:hover,
+html .ui-bar-a .ui-btn:hover,
+html .ui-body-a .ui-btn:hover,
+html body .ui-group-theme-a .ui-btn:hover,
+html head + body .ui-btn.ui-btn-a:hover {
+	background-color:#1a9146 /*{a-bhover-background-color}*/;
+	border-color:#ddd /*{a-bhover-border}*/;
+	/*color:#FFF {a-bhover-color};*/
+        text-shadow: none;
+	/*  text-shadow: 0 {a-bhover-shadow-x} 1px {a-bhover-shadow-y} 0 {a-bhover-shadow-radius} #f3f3f3 {a-bhover-shadow-color};*/
+}
+/* Button down */
+.ui-page-theme-a .ui-btn:active,
+html .ui-bar-a .ui-btn:active,
+html .ui-body-a .ui-btn:active,
+html body .ui-group-theme-a .ui-btn:active,
+html head + body .ui-btn.ui-btn-a:active {
+	background-color:#1a9146 /*{a-bdown-background-color}*/;
+	border-color:#ddd /*{a-bdown-border}*/;
+	color:#fff /*{a-bdown-color}*/;
+	text-shadow: none;
+	/*text-shadow: 0 {a-bdown-shadow-x} 1px {a-bdown-shadow-y} 0 {a-bdown-shadow-radius} #f3f3f3 {a-bdown-shadow-color};*/
+}
+
+/* Active button */
+.ui-page-theme-a .ui-btn.ui-btn-active,
+html .ui-bar-a .ui-btn.ui-btn-active,
+html .ui-body-a .ui-btn.ui-btn-active,
+html body .ui-group-theme-a .ui-btn.ui-btn-active,
+html head + body .ui-btn.ui-btn-a.ui-btn-active,
+/* Active checkbox icon */
+.ui-page-theme-a .ui-checkbox-on:after,
+html .ui-bar-a .ui-checkbox-on:after,
+html .ui-body-a .ui-checkbox-on:after,
+html body .ui-group-theme-a .ui-checkbox-on:after,
+.ui-btn.ui-checkbox-on.ui-btn-a:after,
+/* Active flipswitch background */
+.ui-page-theme-a .ui-flipswitch-active,
+html .ui-bar-a .ui-flipswitch-active,
+html .ui-body-a .ui-flipswitch-active,
+html body .ui-group-theme-a .ui-flipswitch-active,
+html body .ui-flipswitch.ui-bar-a.ui-flipswitch-active,
+/* Active slider track */
+.ui-page-theme-a .ui-slider-track .ui-btn-active,
+html .ui-bar-a .ui-slider-track .ui-btn-active,
+html .ui-body-a .ui-slider-track .ui-btn-active,
+html body .ui-group-theme-a .ui-slider-track .ui-btn-active,
+html body div.ui-slider-track.ui-body-a .ui-btn-active {
+	background-color:#1a9146 /*{a-active-background-color}*/;
+	border-color:#1a9146 /*{a-active-border}*/;
+	color:#fff /*{a-active-color}*/;
+	text-shadow: 0 /*{a-active-shadow-x}*/ 1px /*{a-active-shadow-y}*/ 0 /*{a-active-shadow-radius}*/ #005599 /*{a-active-shadow-color}*/;
+}
+            
+            
+        
+        </style>-->
+        
+        
         <link rel="stylesheet" href="css/custom.css"></link>
     </head>
     <style>
@@ -56,7 +144,53 @@
             -ms-transform:rotate(44deg);
             -webkit-transform:rotate(44deg); 
         }
+        
 
+               #select-Scheme-performance-listbox  .ui-listview
+               {
+                   padding: 0px;
+               }
+               #select-Scheme-performance-listbox  .ui-btn
+               {
+                background:#FFFFFF !important; 
+                color:#1a9146;
+                text-shadow:none !important; 
+
+            }
+
+            #select-Scheme-performance-listbox  .ui-btn-active 
+           {
+                background:#1a9146 !important;
+                color:#FFF;
+
+            }
+            #select-Scheme-performance-listbox  .ui-btn:hover
+            {
+                background:#1a9146 !important; 
+                color:#FFF;
+                text-shadow:none !important; 
+
+            }
+            #select-Scheme-performance-listbox .ui-listview li a{
+                border-color:#e2e2e2 !important; 
+            }
+        
+        
+            .ui-datebox-container
+            {
+                border: 1px solid #EAEBE6 !important;
+            }
+            /*
+            */
+         .popover-data
+         {
+             padding: 10px; 
+             background-color: #72c18f;
+             color: #fff;
+         }
+         .popover-data.ui-input-text { border-color: red; }
+            
+            
         body{
             font-family: Roboto-Regular !important;
         }
@@ -111,49 +245,16 @@
                     </div>
                 </div>
             </div>
-
-            <div data-role="tabs" id="tabs">
-                <div data-role="navbar" class="page-navbar">
-                    <ul class="tabs-green-theme">                        
-                        <li><a href="#product" data-ajax="false">Performance</a></li>
-                        <li><a href="#scheme" data-ajax="false">Month wise Trend</a></li>
-
-
-                    </ul>
-                </div>
-                <div id="product" class="ui-body-d ui-content" style="background-color: #EAEBE6;">
-
-                    <div class="subgraph" style="width: 98%;" >
-                        <div class="subgraph" style="margin-left:  2%;margin-top:2%;background-color: white;color: grey ;size: 14px;text-align: left;" >
-                            <div  style="width: 100%;  ">
-                                <span class="graph-title">Scheme</span>
-                            </div>
-                            <div  id="scheme_performance_chart" style="height: 450px; width: 100% "></div>
-
-                        </div>
-                    </div>
-                </div>
-                <div id="scheme" class="ui-body-d ui-content" style="background-color: #EAEBE6;">
-
-                    <div class="subgraph" style="width: 98%;" >
-
-                        <div class="subgraph" style="margin-left:  2%;margin-top:2%;background-color: white;color: grey ;size: 14px;text-align: left;" >
-
-                            <div  style="width: 100%;  ">
-                                <span class="graph-title">Scheme</span>
-                            </div>
-                            <div  id="scheme_performance_chart2" style="height: 450px; width: 100% "></div>
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+            
+            <!-- scheme-performance page start -->
+            <div id="scheme-performance-page-content">
+            
+            </div> <!-- scheme-performance page END -->
 
             <!-- scheme filter  -->
-            <div data-role="page" class="outerdiv "  id="scheme-performance-filter" style="display: none; z-index:1000;" >
+<!--            <div data-role="page" class="outerdiv "  id="scheme-performance-filter" style="display: none; z-index:1000;" >
 
-            </div>
+            </div>-->
 
 
             <div data-role="popup" id="popupscheme" data-overlay-theme="b" data-theme="b"  data-corners="false" class="ui-corner-all">
@@ -299,9 +400,9 @@
             </div>
 
             <!-- scheme filter  -->
-            <div data-role="page" class="outerdiv "  id="sales-performance-filter" style="/*display: block; z-index:1000; */" >
+<!--            <div data-role="page" class="outerdiv "  id="sales-performance-filter" style="/*display: block; z-index:1000; */" >
 
-            </div>
+            </div>-->
 
             <!-- -->
         </div>
@@ -374,9 +475,9 @@
             </div>
 
             <!-- scheme filter  -->
-            <div data-role="page" class="outerdiv "  id="product-performance-filter" style="/*display: block; z-index:1000; */" >
+<!--            <div data-role="page" class="outerdiv "  id="product-performance-filter" style="/*display: block; z-index:1000; */" >
 
-            </div>
+            </div>-->
 
             <!-- -->
         </div>
@@ -438,9 +539,9 @@
             </div>
 
             <!-- scheme filter  -->
-            <div data-role="page" class="outerdiv "  id="product-performance-filter" style="/*display: block; z-index:1000; */" >
+<!--            <div data-role="page" class="outerdiv "  id="product-performance-filter" style="/*display: block; z-index:1000; */" >
 
-            </div>
+            </div>-->
 
             <div data-role="popup" id="popupliquidity" data-overlay-theme="b" data-theme="b"  data-corners="false" class="ui-corner-all">
                 <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
@@ -542,19 +643,15 @@
             </div>
 
             <!-- scheme filter  -->
-            <div data-role="page" class="outerdiv "  id="liqudity-performance-filter" style="/*display: block; z-index:1000; */" >
+<!--            <div data-role="page" class="outerdiv "  id="liqudity-performance-filter" style="/*display: block; z-index:1000; */" >
 
-            </div>
+            </div>-->
 
             <!-- -->
         </div>
         <!--
         END ACCOUNTING REVIEW
         -->
-
-
-
-
 
         <!--        <div data-role="page" class="outerdiv mainpage" id="page-menu">
                     <div data-role="content" class="innerdiv" id="menu">
@@ -571,11 +668,16 @@
     <script src="lib/bar-canvas-graph.js"></script>
     <script src="lib/jquery.mobile-1.4.2.min.js"></script>
     <script src="lib/underscore-min.js"></script>
-    <script src="lib/backbone-min.js"></script>       
+    <script src="lib/backbone-min.js"></script>
     <script src="lib/backbone.controller.js"></script> 
     <script src="lib/canvasjs.js"></script>
+    <script src="lib/jqm-datebox.core.js"></script>
+    <script src="lib/jqm-datebox.mode.customflip.js"></script>
+    <script src="lib/jqm-datebox.mode.flipbox.js"></script>
+    
     <script src="js/helpers/utils.js"></script>
     <script src="js/helpers/DbHelper.js"></script>
+    
     <!--     Page Specific Javascripts   -->
 
 
@@ -706,16 +808,7 @@
             }
 
             $(document).ready(function() {
-                $("#tabs").tabs({
-                    activate: function(event, ui) {
-
-                        chart3.render();
-                        chart2.render();
-                        chart.render();
-                    }
-                });
-
-
+                
                 $("#sales-tabs").tabs({
                     activate: function(event, ui) {
 

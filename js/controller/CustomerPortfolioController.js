@@ -7,7 +7,9 @@ var CustomerPortfolioController = Backbone.Controller.extend({
                 model: customerPortfolio
             });
             $('#customerporfolio-content').html(customerPortfolioView.el);
+             console.log('after load called');
              $.mobile.activePage.trigger("create");
+             console.log('after crate called');
         });                    
     }
 }); 

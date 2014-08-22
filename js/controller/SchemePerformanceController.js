@@ -1,32 +1,28 @@
 var SchemePerformanceController = Backbone.Controller.extend({
     initialize: function() {
+        console.log('initialize');
+     //   var SchemePerformance = new SchemePerformanceDAO();
+      //  SchemePerformance.getSchemeList(function(res) {
+         //   SchemePerformance = new SchemePerformance(res);
 
-        var SchemePerformance = new SchemePerformanceDAO();
-        SchemePerformance.getSchemeList(function(res) {
-            SchemePerformance = new SchemePerformance(res);
-//            var dashboardView = null;
-//            utils.loadTemplate(['DashboardView'], function() {
-//                dashboardView = new DashboardView({
-//                    model: dashboard
-//                });
-//                $('#page-dashboard-content').html(dashboardView.el);
-//                $.mobile.changePage("#page-dashboard", {transition: "slide"});
-//                $.mobile.activePage.trigger("create");
-//            });
-        });
-
-//        var schemePerformance= new SchemePerformance();
-//        var schemePerformanceController = null;
-//        utils.loadTemplate(['SchemePerformanceView'], function() {
-//            schemePerformanceController= new SchemePerformanceView({
-//                model: schemePerformance
-//            });
-//            $('#schemeperformance-content').html(SchemePerformanceView.el);
-//             $.mobile.activePage.trigger("create");
-//        }); 
-
+     
+        var schemePerformance= new SchemePerformance();
+       
+        
+        var schemePerformanceView = null;
+        utils.loadTemplate(['SchemePerformanceView'], function() {
+            console.log('ready to load temp');
+            schemePerformanceView= new SchemePerformanceView({
+                model: schemePerformance
+            });
+            $('#scheme-performance-page-content').html(schemePerformanceView.el);
+             
+             $.mobile.activePage.trigger("create");
+             
+        //}); 
+  // });
         console.log('SchemePerformance');
-        console.log(SchemePerformance);
+      //  console.log(SchemePerformance);
         var data = null;
         var data = [
             {
@@ -98,8 +94,7 @@ var SchemePerformanceController = Backbone.Controller.extend({
         ];
 //data=SchemePerformanceDAO.getSchemeList();
         schemeData = [];
-        console.log('data');
-        console.log(data);
+        
         $.each(data, function(key, value) {
             schemeData.push({
                 y: value.TotalSale,
@@ -239,6 +234,7 @@ var SchemePerformanceController = Backbone.Controller.extend({
         /*
          *  third graph
          */
+        
         CanvasJS.addColorSet("whitecolor",
                 [//colorSet Array
                     "#FFFFFF", '#65D4EA',
@@ -320,7 +316,11 @@ var SchemePerformanceController = Backbone.Controller.extend({
                     ]
                 });
         chart3.render();
+        
         $.mobile.loading("hide");
+        
+        });
+    //    });
     }
 
 

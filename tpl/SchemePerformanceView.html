@@ -1,50 +1,118 @@
-
-<div data-role="header" class="header tp-header  ui-header ui-bar-inherit ui-header-fixed slidedown"  data-position="fixed" role="banner">
-                <div class="header-main">
-                    <a  class="btn-left dash-back" style="display:none;">
-                        <img  class="back-img" src="images/Back_1.png"/>
-                    </a>
-                    <h2 id="dashboard-title">Dashboard</h2>
-                    <h4 id="dashboard-subtitle">Figures in Lakhs</h4>
-                    <div data-role="controlgroup" data-type="horizontal">
-                        <!--<a style="padding: 0px 20px 5px 20px;" href="#" id="filter-btn" data-transition="slide" class="btn-right"> <img src="images/back.png"/> <h3>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h3> </a>-->
-                        <a style="padding: 0px 20px 5px 20px;" href="#overlayPanel" id="menu-btn" data-transition="slide" class="btn-right side-menu-btn"> <img src="images/next-p-btn.png"/> </a>
-                    </div>
-                </div>                
-            </div>
-            <div data-role="content" class="innerdiv" id="">
-                <div class="subgraph" style="width: 96%;background-color: white;color: grey ;size: 14px;text-align: left;" >
-                    <div class="" id="" style="width: 100%; margin-left:  2%;margin-top:2%; ">
-                        <span class="graph-title">Scheme</span>
-                    </div>
-                    <div  id="scheme_performance_chart" style="height: 400px; width: 100% "></div>
+<div data-role="tabs" id="tabs">
+    <div data-role="navbar" data-position-fixed="true" >
+        <ul class="tabs-green-theme">                        
+            <li><a href="#product" data-ajax="false">Performance</a></li>
+            <li><a href="#scheme" data-ajax="false">Month wise Trend</a></li>
+        </ul>
+    </div>
+    <div class="subgraph" style="width: 98%;" >
+        <div class="subgraph" style="margin-left:  2%;;background-color: white;color: grey ;size: 14px;text-align: left;" >
+            <div class="ui-grid-a">
+                <div  class="ui-block-a" style="text-align:center;">
+                    <a href="#scheme-period" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-mini" data-transition="pop">Period</a>
                 </div>
-
-            </div>
-            <!-- 2nd popup -->
-            <!--<a href="#popupscheme" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left ui-btn-a" data-transition="pop">Sign in</a>-->
-            <div data-role="popup" id="popupscheme" data-overlay-theme="a" data-theme="b" class="ui-corner-all">
-<!--                <form>
-                    <div class="subgraph" style="background-color: white;color: grey ;size: 14px;" >
-                    <div class="" id="" style=" ">
-                        <span class="graph-title">Product </span>
-                    </div>
-                    <div  id="product_performance_chart" style="height: 300px;"></div>
+                <div class="ui-block-b" style="text-align:center;">
+                    <select name="select-Scheme-performance" id="select-Scheme-performance" data-native-menu="false" multiple="multiple"  data-mini="true"  data-iconpos="noicon" >
+                        <option>Schemes</option>
+                        <option value="scheme-1">Scheme-1</option>
+                        <option value="scheme-2">Scheme-2</option>
+                        <option value="scheme-3">Scheme-3</option>
+                        <option value="scheme-4">Scheme-4</option>
+                        <option value="scheme-5">Scheme-5</option>
+                        <option value="scheme-6">Scheme-6</option>
+                        </select>
                 </div>
-                </form>-->
- <form>
-        <div style="padding:10px 20px;">
-            <div class="graph-title" >
-            <h3>Product :</h3>
-            <span  id="product_performance_chart_title"></span>
             </div>
-            <div  id="product_performance_chart" style="height: 300px;"></div>
-            
         </div>
- </form>
-            </div>
-            <!-- -->
+    </div>
 
-            <div data-role="page"  class="outerdiv mainpage"  id="page-dashboard">
+    <div id="product" class="ui-body-d ui-content" style="background-color: #EAEBE6;">
+
+        <div class="subgraph" style="width: 98%;" >
+            <div class="subgraph" style="margin-left:  2%;margin-top:2%;background-color: white;color: grey ;size: 14px;text-align: left;" >
+                <div  style="width: 100%;  ">
+                    <span class="graph-title">Scheme</span>
+                </div>
+                <div  id="scheme_performance_chart" style="height: 450px; width: 100% "></div>
 
             </div>
+        </div>
+    </div>
+    <div id="scheme" class="ui-body-d ui-content" style="background-color: #EAEBE6;">
+        <div class="subgraph" style="width: 98%;" >
+            <div class="subgraph" style="margin-left:  2%;margin-top:2%;background-color: white;color: grey ;size: 14px;text-align: left;" >
+                <div  style="width: 100%;  ">
+                    <span class="graph-title">Scheme</span>
+                </div>
+                <div  id="scheme_performance_chart2" style="height: 450px; width: 100% "></div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<div data-role="popup" id="scheme-period" data-overlay-theme="b" data-theme="a" class="ui-corner-all">
+    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+    <form>
+        <div>
+                <div  style="width: 100%;  ">
+                    <span class="graph-title">Period </span>
+                </div>
+           <div data-mini="true" class="popover-data" >
+            <label for="start-scheme-period" class="ui-accessible">Start:</label>
+            <input type="text" name="start-scheme-period" id="start-scheme-period" data-mini="true"  value=""  data-role="datebox"   data-options='{"mode": "customflip", "useNewStyle":true}'>
+            <label for="end-scheme-period" class="ui-accessible">End:</label>
+            <input type="text" name="end-scheme-period" id="end-scheme-period" data-mini="true" value=""  data-role="datebox"   data-options='{"mode": "customflip", "useNewStyle":true}' >
+            <button type="button" data-mini="true" class="ui-btn ui-corner-all ui-btn-inline  ui-mini">select</button>
+            <button type="button" data-mini="true" class="ui-btn ui-corner-all ui-btn-inline  ui-mini ">Cancel</button>
+           </div> 
+        </div>
+    </form>
+</div>
+
+<script>
+    $("#tabs").tabs({
+        activate: function(event, ui) {
+            chart3.render();
+            chart2.render();
+            chart.render();
+        }
+    });
+    
+    var selectdata =  [
+  {"input": false, "name": "", "data":[
+   'jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'
+  ]},
+  {"input": false, "name": "", "data":[
+  2011,2012,2013,2014,2015
+  ]}
+];
+
+console.log(selectdata);
+
+
+jQuery.extend(jQuery.mobile.datebox.prototype.options, {
+    "customData": selectdata,
+    // "customDefault": [0],
+//     "useNewStyle": true,
+//     "enablePopup": false,
+//     "centerHoriz": true,
+//     "centerVert": true,
+//     "useFocus": true,
+//     "useButton": false,
+//     "useHeader": true,
+     "overrideCustomSet": "Select",
+       "overrideCustomFormat": "%%",
+});
+
+$('#end-scheme-period').on('datebox', function (e, p) {
+   
+        if (p.method === 'set') {
+       // e.stopImmediatePropagation()
+        console.log("p");
+        console.log(p);
+        //$(this).val(selectdata[p.value]);
+    }
+});
+
+</script>
